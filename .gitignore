@@ -41,4 +41,4 @@ yarn-error.log*
 next-env.d.ts
 
 #Auth key for the firebase db
-fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json
+firebase/fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json

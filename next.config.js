@@ -6,7 +6,10 @@ const nextConfig = {
     domains: ['firebasestorage.googleapis.com'],
   },
   output: 'export',
-  distDir: 'out'
+  distDir: 'out',
+  experimental: {
+    serverTimeout: 60000
+  }
 }
 
 module.exports = nextConfig
