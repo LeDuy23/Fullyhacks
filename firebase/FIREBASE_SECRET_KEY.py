@@ -42,6 +42,8 @@ with open("firebase/house_items_info.json") as f:
 items_ref = db.reference(f'users/{user_id}/items')
 
 for key, item in data.items():
+    print(key)
+    print(item)
 
     #upload image to firebase storage
     image_filename = f"{key}.png"
