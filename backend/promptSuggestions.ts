@@ -9,13 +9,16 @@ const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 
 // Fallback suggestions
 const fallbackSuggestions = {
-  'kitchen': ['refrigerator', 'microwave', 'dishwasher', 'stove', 'toaster', 'coffee maker', 'blender', 'pots and pans', 'utensils', 'dishes', 'airfryer'],
+  'Kitchen': ['refrigerator', 'microwave', 'dishwasher', 'stove', 'toaster', 'coffee maker', 'blender', 'pots and pans', 'utensils', 'dishes', 'airfryer'],
   'living room': ['sofa', 'coffee table', 'television', 'bookshelf', 'lamp', 'entertainment center', 'side table', 'rug', 'curtains', 'armchair'],
   'bedroom': ['bed', 'mattress', 'dresser', 'nightstand', 'wardrobe', 'mirror', 'bedding', 'pillows', 'lamp', 'rug' , 'television'],
-  'bathroom': ['shower', 'sink', 'toilet', 'medicine cabinet', 'towel rack', 'mirror', 'toilet paper holder', 'shower curtain', 'bath mat', 'toiletries'],
-  'office': ['desk', 'office chair', 'computer', 'monitor', 'printer', 'filing cabinet', 'bookshelf', 'desk lamp', 'keyboard', 'mouse'],
-  'garage': ['tools', 'workbench', 'lawn mower', 'shelving', 'bicycle', 'garden tools', 'storage bins', 'ladder', 'power tools', 'car supplies'],
-  'backyard' : ['grill', 'patio furniture', 'garden tools', 'outdoor lighting', 'bbq', 'garden furniture', 'outdoor decor', 'pool', 'garden',]
+  'Bathroom': ['shower', 'sink', 'toilet', 'medicine cabinet', 'towel rack', 'mirror', 'toilet paper holder', 'shower curtain', 'bath mat', 'toiletries'],
+   'laundry room': ['washing machine', 'dryer', 'iron', 'ironing board', 'drying rack', 'storage bins', 'shelving', 'laundry basket', 'laundry detergent', 'laundry soap'], 
+    'garage': ['tools', 'workbench', 'lawn mower', 'shelving', 'bicycle', 'garden tools', 'storage bins', 'ladder', 'power tools', 'car supplies'],
+    'backyard': ['grill', 'patio furniture', 'garden tools', 'outdoor lighting', 'bbq', 'garden furniture', 'outdoor decor', 'pool', 'garden'],
+  'backyard' : ['grill', 'patio furniture', 'garden tools', 'outdoor lighting', 'bbq', 'garden furniture', 'outdoor decor', 'pool', 'garden'],   
+  'basement': ['storage bins', 'shelving', 'tools', 'workbench', 'furniture', 'appliances', 'electronics', 'sports equipment', 'gym equipment', 'office supplies']
+  
 };
 
 interface SuggestItemsRequest {

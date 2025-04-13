@@ -21,7 +21,7 @@
     "framer-motion": "^10.15.1",
     "html2pdf.js": "^0.10.1",
     "next": "^13.4.13",
-    "node-fetch": "^3.3.2",
+    "node-fetch": "^2.7.0",
     "openai": "^4.10.0",
     "postcss": "^8.4.27",
     "react": "^18.2.0",
