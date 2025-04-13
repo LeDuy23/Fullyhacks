@@ -12,14 +12,14 @@ cred_firebase = credentials.Certificate(
     "fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json")
 
 if not firebase_admin._apps:
-firebase_admin.initialize_app(
-    cred_firebase,
-    {
-        'databaseURL':
-        'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/',
-        'storageBucket':
-        'gs://fire-insurance-claim-app.firebasestorage.app'  # ✅ Note: this is usually appspot.com, not firebasestorage.app
-    })
+    firebase_admin.initialize_app(
+        cred_firebase,
+        {
+            'databaseURL':
+            'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/',
+            'storageBucket':
+            'gs://fire-insurance-claim-app.firebasestorage.app'  # ✅ Note: this is usually appspot.com, not firebasestorage.app
+        })
 
 user_id = "user123"
 
