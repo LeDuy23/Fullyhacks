@@ -1,5 +1,5 @@
 import firebase_admin
-from firebase_admin import credentials, db
+from firebase_admin import credentials, db, storage
 from datetime import datetime
 import json
 import os
@@ -12,9 +12,9 @@ admin_key = os.getenv('fire-insurance-claim-app')
 print(admin_key)
 
 # Initialize Firebase
-cred = credentials.Certificate(admin_key)
+cred_firebase = credentials.Certificate(admin_key)
 
-firebase_admin.initialize_app(cred, {
+firebase_admin.initialize_app(cred_firebase, {
     'databaseURL':
     'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'
 })
@@ -60,3 +60,35 @@ for key, item in data.items():
     items_ref.push().set(item)
 
 print("✅ User and items successfully added to Firebase.")
+
+
+
+# ✅ Correct Firebase bucket name (NO gs://, NO .firebasestorage.app)
+cred_bucket = credentials.Certificate(
+    'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/')
+
+firebase_admin.initialize_app(
+    cred_bucket, {'storageBucket': 'fire-insurance-claim-app.firebasestorage.app'})
+
+
+#Takes in a local file and uploads it to the firebase storage
+# Returns the public URL of the uploaded file
+def upload_file_to_storage(local_file_path, storage_path):
+  bucket = storage.bucket()
+  blob = bucket.blob(storage_path)
+
+  # Guess content type
+  content_type, _ = mimetypes.guess_type(local_file_path)
+  if content_type is None and local_file_path.endswith(".heic"):
+    content_type = "image/heic"
+
+  blob.upload_from_filename(local_file_path, content_type=content_type)
+  blob.make_public()  # optional — makes the file accessible by public URL
+
+  print(f"✅ Uploaded: {local_file_path}")
+  print(f"🔗 Public URL: {blob.public_url}")
+  return blob.public_url
+
+
+# Test it
+upload_file_to_storage('firebase/item1.png', "users/user123/items/item1.png")
