@@ -1,0 +1,110 @@
+
+import * as functions from 'firebase-functions';
+import { Configuration, OpenAIApi } from 'openai';
+import * as admin from 'firebase-admin';
+
+// Initialize OpenAI API
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+const openai = new OpenAIApi(configuration);
+
+// Fallback suggestions
+const fallbackSuggestions = {
+  'kitchen': ['refrigerator', 'microwave', 'dishwasher', 'stove', 'toaster', 'coffee maker', 'blender', 'pots and pans', 'utensils', 'dishes'],
+  'living room': ['sofa', 'coffee table', 'television', 'bookshelf', 'lamp', 'entertainment center', 'side table', 'rug', 'curtains', 'armchair'],
+  'bedroom': ['bed', 'mattress', 'dresser', 'nightstand', 'wardrobe', 'mirror', 'bedding', 'pillows', 'lamp', 'rug'],
+  'bathroom': ['shower', 'sink', 'toilet', 'medicine cabinet', 'towel rack', 'mirror', 'toilet paper holder', 'shower curtain', 'bath mat', 'toiletries'],
+  'office': ['desk', 'office chair', 'computer', 'monitor', 'printer', 'filing cabinet', 'bookshelf', 'desk lamp', 'keyboard', 'mouse'],
+  'garage': ['tools', 'workbench', 'lawn mower', 'shelving', 'bicycle', 'garden tools', 'storage bins', 'ladder', 'power tools', 'car supplies'],
+};
+
+interface SuggestItemsRequest {
+  roomType: string;
+}
+
+// Get item suggestions for a specific room using OpenAI
+export const promptSuggestions = async (
+  data: SuggestItemsRequest,
+  context: functions.https.CallableContext
+) => {
+  // Check auth
+  if (!context.auth) {
+    throw new functions.https.HttpsError(
+      'unauthenticated',
+      'You must be logged in to get item suggestions.'
+    );
+  }
+  
+  // Extract request data
+  const { roomType } = data;
+  
+  if (!roomType) {
+    throw new functions.https.HttpsError(
+      'invalid-argument',
+      'The function must be called with a room type.'
+    );
+  }
+  
+  try {
+    // Prepare the prompt
+    const prompt = `List 10 common items found in a ${roomType} that might be included in an insurance claim. Return only a JSON array of strings with no additional text.`;
+    
+    // Log the request to Firestore
+    const logRef = admin.firestore().collection('aiPromptLogs').doc();
+    await logRef.set({
+      userId: context.auth.uid,
+      prompt,
+      type: 'suggest_items',
+      model: 'gpt-3.5-turbo',
+      timestamp: admin.firestore.FieldValue.serverTimestamp(),
+      success: false, // Will update to true if successful
+    });
+    
+    // Call OpenAI API
+    const response = await openai.createCompletion({
+      model: 'text-davinci-003',
+      prompt,
+      max_tokens: 250,
+      temperature: 0.7,
+    });
+    
+    // Process the response
+    const content = response.data.choices[0].text?.trim() || '';
+    
+    // Extract JSON array from the response
+    let suggestions = [];
+    try {
+      // Sometimes the API returns valid JSON, other times it might include markdown formatting
+      const jsonMatch = content.match(/\[.*\]/s);
+      if (jsonMatch) {
+        suggestions = JSON.parse(jsonMatch[0]);
+      } else {
+        suggestions = JSON.parse(content);
+      }
+    } catch (error) {
+      throw new Error('Invalid response format from OpenAI');
+    }
+    
+    // Update the log entry with success
+    await logRef.update({
+      response: content,
+      success: true,
+      suggestions,
+    });
+    
+    return { suggestions };
+  } catch (error) {
+    console.error('OpenAI API error:', error);
+    
+    // Provide fallback suggestions based on room type
+    const roomKey = roomType.toLowerCase();
+    const suggestions = fallbackSuggestions[roomKey] || ['chair', 'table', 'lamp', 'shelf', 'cabinet', 'rug', 'artwork', 'electronics', 'appliance', 'furniture'];
+    
+    return { 
+      suggestions,
+      isAI: false,
+      isFallback: true
+    };
+  }
+};
