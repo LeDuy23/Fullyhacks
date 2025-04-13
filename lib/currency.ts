@@ -10,15 +10,14 @@ export const currencies = {
 
 type CurrencyCode = keyof typeof currencies;
 
-// Static exchange rates (as of last update)
-// In a production app, you might want to update these periodically
+// Exchange rates (for simplicity, we'll use static rates)
 const exchangeRates = {
   USD: 1,
   EUR: 0.92,
   MXN: 17.23,
 };
 
-// Convert amount from one currency to another
+
 export async function convertCurrency(
   amount: number,
   from: CurrencyCode = 'USD',
