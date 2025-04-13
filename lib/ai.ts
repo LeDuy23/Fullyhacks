@@ -155,7 +155,7 @@ export async function estimateItemValue(
     }
     
     // If no match, return a reasonable default based on room type
-    const roomDefaults = {
+    const roomDefaults: Record<string, number> = {
       "kitchen": 250,
       "living_room": 300,
       "bedroom": 200,
@@ -166,6 +166,6 @@ export async function estimateItemValue(
     };
     
     const roomKey = roomType?.toLowerCase().replace(/\s+/g, '_');
-    return roomDefaults[roomKey] || 100;
+    return roomDefaults[roomKey as keyof typeof roomDefaults] || 100;
   }
 }
