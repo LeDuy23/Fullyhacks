@@ -2,14 +2,15 @@ import firebase_admin
 from firebase_admin import credentials, storage
 import mimetypes
 
-# ✅ Initialize Firebase (you only do this once per run)
+# ✅ Correct Firebase bucket name (NO gs://, NO .firebasestorage.app)
 cred = credentials.Certificate(
     "fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0.json")
 
 firebase_admin.initialize_app(
     cred,
     {
-        'storageBucket': 'gs://fire-insurance-claim-app.firebasestorage.app'  # change to your real bucket
+        'storageBucket':
+        'fire-insurance-claim-app.appspot.com'  # ✅ CORRECT BUCKET NAME
     })
 
 
@@ -30,4 +31,8 @@ def upload_file_to_storage(local_file_path, storage_path):
   return blob.public_url
 
 
+# Test it
 upload_file_to_storage('firebase/5.png', "users/user123/items/5.png")
+
+
+

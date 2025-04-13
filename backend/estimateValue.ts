@@ -7,8 +7,6 @@ import fetch from 'node-fetch';
 const CEREBRAS_API_URL = process.env.CEREBRAS_API_URL || 'https://api.cerebras.ai/v1';
 const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 
-// No longer using static fallback data from JSON
-
 interface EstimateValueRequest {
   itemName: string;
   description?: string;
@@ -98,23 +96,21 @@ export const estimateValue = async (
     // Use an intelligent fallback system with common item estimates
     const commonItems = {
       "refrigerator": 1200,
-      "tv": 800, 
-      "television": 800,
+      "tv": 500, 
       "sofa": 1000,
       "couch": 1000,
       "bed": 900,
-      "chair": 150,
+      "chair": 200,
       "table": 300,
-      "desk": 350,
+      "desk": 250,
       "computer": 1200,
       "laptop": 1000,
       "dresser": 400,
       "wardrobe": 500,
       "bicycle": 250,
-      "microwave": 150,
-      "dishwasher": 700,
-      "stove": 900,
-      "oven": 850
+      "microwave": 120,
+      "dishwasher": 800,
+      "stove && oven": 1200,
     };
     
     // Try to match the item name to common items
