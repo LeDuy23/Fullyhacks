@@ -213,8 +213,7 @@ export default function ItemForm({ suggestions, onSubmit }: ItemFormProps) {
               <InputLeftAddon>
                 {currency === 'USD' ? '$' : 
                  currency === 'EUR' ? '€' : 
-                 currency === 'GBP' ? '£' : 
-                 currency === 'JPY' ? '¥' : 
+                 currency === 'MXN' ? 'Mex$' : 
                  currency}
               </InputLeftAddon>
               <Input
@@ -234,7 +233,7 @@ export default function ItemForm({ suggestions, onSubmit }: ItemFormProps) {
             >
               <option value="USD">USD ($)</option>
               <option value="EUR">EUR (€)</option>
-              <option value="GBP">GBP (£)</option>
+              <option value="MXN">MXN (Mex$)</option>option>
               <option value="JPY">JPY (¥)</option>
               <option value="CAD">CAD (C$)</option>
               <option value="AUD">AUD (A$)</option>
