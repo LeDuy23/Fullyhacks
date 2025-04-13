@@ -2,11 +2,13 @@ import firebase_admin
 from firebase_admin import credentials, firestore, db
 import json
 
-cred = credentials.RefreshToken('path/to/refreshToken.json')
+
 
 default_app = firebase_admin.initialize_app()
 
-db = firestore.client()
+
+
+# db = firestore.client()
 
 
 
