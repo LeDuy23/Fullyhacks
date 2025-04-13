@@ -30,4 +30,4 @@ def upload_file_to_storage(local_file_path, storage_path):
 
 
 # Test it
-upload_file_to_storage('firebase/5.png', "users/user123/items/5.png")
+upload_file_to_storage('firebase/item1.png', "users/user123/items/item1.png")
