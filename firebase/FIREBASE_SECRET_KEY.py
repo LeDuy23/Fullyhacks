@@ -8,16 +8,21 @@ import firebase_image2
 
 #Load the .env variable for our admin key.
 load_dotenv()
-admin_key = os.getenv('fire-insurance-claim-app')
+admin_key = os.getenv(
+    'fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json')
+db_url = os.getenv('fire-insurance-claim-app.firebasestorage.app')
 print(admin_key)
 
 # Initialize Firebase
-cred = credentials.Certificate(admin_key)
+cred = credentials.Certificate(
+    'fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json')
 
-firebase_admin.initialize_app(cred, {
-    'databaseURL':
-    'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'
-})
+if not firebase_admin._apps:
+    firebase_admin.initialize_app(
+        cred, {
+            'fire-insurance-claim-app.firebasestorage.app':
+            'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'
+        })
 
 user_id = "user123"
 

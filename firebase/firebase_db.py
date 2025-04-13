@@ -6,17 +6,16 @@ import os
 from dotenv import load_dotenv
 import firebase_image2
 
-#Load the .env variable for our admin key.
-load_dotenv()
-admin_key = os.getenv('fire-insurance-claim-app')
-print(admin_key)
 
 # Initialize Firebase
-cred_firebase = credentials.Certificate(admin_key)
+cred_firebase = credentials.Certificate("fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json")
+
+cred_bucket = credentials.Certificate(
+    'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/')
 
 firebase_admin.initialize_app(cred_firebase, {
-    'databaseURL':
-    'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'
+    'databaseURL': 'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/',
+    'storageBucket': 'fire-insurance-claim-app.appspot.com'  # ✅ Note: this is usually appspot.com, not firebasestorage.app
 })
 
 user_id = "user123"
@@ -64,11 +63,8 @@ print("✅ User and items successfully added to Firebase.")
 
 
 # ✅ Correct Firebase bucket name (NO gs://, NO .firebasestorage.app)
-cred_bucket = credentials.Certificate(
-    'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/')
 
-firebase_admin.initialize_app(
-    cred_bucket, {'storageBucket': 'fire-insurance-claim-app.firebasestorage.app'})
+
 
 
 #Takes in a local file and uploads it to the firebase storage
