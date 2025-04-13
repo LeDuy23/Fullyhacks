@@ -9,8 +9,7 @@ cred = credentials.Certificate(
 firebase_admin.initialize_app(
     cred,
     {
-        'storageBucket':
-        'fire-insurance-claim-app.appspot.com'  # change to your real bucket
+        'storageBucket': 'gs://fire-insurance-claim-app.firebasestorage.app'  # change to your real bucket
     })
 
 
