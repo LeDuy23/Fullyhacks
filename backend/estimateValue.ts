@@ -1,13 +1,11 @@
 
 import * as functions from 'firebase-functions';
-import { Configuration, OpenAIApi } from 'openai';
 import * as admin from 'firebase-admin';
+import fetch from 'node-fetch';
 
-// Initialize OpenAI API
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+// Cerebras API configuration
+const CEREBRAS_API_URL = process.env.CEREBRAS_API_URL || 'https://api.cerebras.ai/v1';
+const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 
 // Static fallback data
 import * as fallbackData from '../data/item_prices.json';
@@ -56,16 +54,26 @@ export const estimateValue = async (
       success: false, // Will update to true if successful
     });
     
-    // Call OpenAI API
-    const response = await openai.createCompletion({
-      model: 'text-davinci-003',
-      prompt,
-      max_tokens: 50,
-      temperature: 0.3,
+    // Call Cerebras API
+    const response = await fetch(`${CEREBRAS_API_URL}/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${CEREBRAS_API_KEY}`
+      },
+      body: JSON.stringify({
+        prompt,
+        max_tokens: 50,
+        temperature: 0.3
+      })
     });
     
-    // Process the response
-    const content = response.data.choices[0].text?.trim() || '';
+    if (!response.ok) {
+      throw new Error(`Cerebras API error: ${response.statusText}`);
+    }
+    
+    const responseData = await response.json();
+    const content = responseData.choices[0].text?.trim() || '';
     
     // Extract the number from the response
     const numberMatch = content.match(/\d+(\.\d+)?/);

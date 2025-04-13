@@ -1,33 +1,45 @@
 
-import OpenAI from 'openai';
+// Cerebras AI API client
+const CEREBRAS_API_URL = process.env.CEREBRAS_API_URL || 'https://api.cerebras.ai/v1';
+const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 
-// Initialize OpenAI client
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
+// Helper function to call Cerebras API
+async function callCerebrasAPI(prompt: string, options: any = {}) {
+  const response = await fetch(`${CEREBRAS_API_URL}/completions`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${CEREBRAS_API_KEY}`
+    },
+    body: JSON.stringify({
+      prompt,
+      max_tokens: options.maxTokens || 150,
+      temperature: options.temperature || 0.7,
+      ...options
+    })
+  });
+
+  if (!response.ok) {
+    throw new Error(`Cerebras API error: ${response.statusText}`);
+  }
+
+  return await response.json();
+}
 
 // Get item suggestions for a specific room
 export async function getSuggestionsForRoom(room: string): Promise<string[]> {
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: "You are a helpful assistant for a wildfire insurance claim app."
-        },
-        {
-          role: "user",
-          content: `List 10 common items found in a ${room} that might be included in an insurance claim. Return only a JSON array of strings with no additional text.`
-        }
-      ],
+    const prompt = `List 10 common items found in a ${room} that might be included in an insurance claim. Return only a JSON array of strings with no additional text.`;
+    
+    const response = await callCerebrasAPI(prompt, {
       temperature: 0.7,
+      maxTokens: 250
     });
 
-    const content = response.choices[0].message.content;
+    const content = response.choices?.[0]?.text || '';
     
     if (!content) {
-      throw new Error('No content in OpenAI response');
+      throw new Error('No content in Cerebras response');
     }
     
     // Extract JSON array from the response
@@ -39,11 +51,11 @@ export async function getSuggestionsForRoom(room: string): Promise<string[]> {
       }
       return JSON.parse(content);
     } catch (error) {
-      console.error('Error parsing OpenAI response:', error);
-      throw new Error('Invalid response format from OpenAI');
+      console.error('Error parsing Cerebras response:', error);
+      throw new Error('Invalid response format from Cerebras');
     }
   } catch (error) {
-    console.error('OpenAI API error:', error);
+    console.error('Cerebras API error:', error);
     
     // Return fallback items based on room
     const fallbacks: Record<string, string[]> = {
@@ -66,25 +78,17 @@ export async function estimateItemValue(
   roomType: string = ''
 ): Promise<number> {
   try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
-      messages: [
-        {
-          role: "system",
-          content: "You are a helpful assistant for estimating the value of items for insurance claims."
-        },
-        {
-          role: "user",
-          content: `Estimate the average replacement cost in USD for a ${itemName} ${itemDescription ? `described as: ${itemDescription}` : ''} ${roomType ? `in a ${roomType}` : ''}. Return only a number with no additional text, symbols, or formatting.`
-        }
-      ],
+    const prompt = `Estimate the average replacement cost in USD for a ${itemName} ${itemDescription ? `described as: ${itemDescription}` : ''} ${roomType ? `in a ${roomType}` : ''}. Return only a number with no additional text, symbols, or formatting.`;
+    
+    const response = await callCerebrasAPI(prompt, {
       temperature: 0.3,
+      maxTokens: 50
     });
 
-    const content = response.choices[0].message.content;
+    const content = response.choices?.[0]?.text || '';
     
     if (!content) {
-      throw new Error('No content in OpenAI response');
+      throw new Error('No content in Cerebras response');
     }
     
     // Extract the number from the response
@@ -93,9 +97,9 @@ export async function estimateItemValue(
       return parseFloat(numberMatch[0]);
     }
     
-    throw new Error('Invalid response format from OpenAI');
+    throw new Error('Invalid response format from Cerebras');
   } catch (error) {
-    console.error('OpenAI API error:', error);
+    console.error('Cerebras API error:', error);
     
     // Return a fallback value
     // Try to get the value from the static data
