@@ -2,19 +2,16 @@ import firebase_admin
 from firebase_admin import credentials, db
 from datetime import datetime
 import json
-import firebase_image2
 import os
 from dotenv import load_dotenv
 
 #Load the .env variable for our admin key.
 load_dotenv()
-admin_key = os.getenv(
-    'fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0')
+admin_key = os.getenv('fire-insurance-claim-app')
 print(admin_key)
 
 # Initialize Firebase
-cred = credentials.Certificate(
-    'fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0.json')
+cred = credentials.Certificate(admin_key)
 
 firebase_admin.initialize_app(cred, {
     'databaseURL':
