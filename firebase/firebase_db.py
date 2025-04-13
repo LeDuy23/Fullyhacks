@@ -2,7 +2,6 @@ import firebase_admin
 from firebase_admin import credentials, db, storage
 from datetime import datetime
 import json
-import firebase_image2
 import mimetypes
 
 # Initialize Firebase
