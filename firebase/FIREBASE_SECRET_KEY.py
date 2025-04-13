@@ -31,25 +31,19 @@ import json
 
 # Initialize Firebase
 cred = credentials.Certificate(
-    '/home/jacob/Downloads/fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0.json'
-)
+    'fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0.json')
 
-print(f"Cred: {cred")
 firebase_admin.initialize_app(cred, {
     'databaseURL':
     'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'
 })
 
 # Load JSON
-with open("data.json") as f:
+with open("firebase/book_info.json") as f:
     data = json.load(f)
 
 # Write entire data
 ref = db.reference('users')
 ref.set(data)
 
-# Optional: Push a new user
-# ref.push({
-#     'name': 'Charlie',
-#     'age': 22
-# })
+
