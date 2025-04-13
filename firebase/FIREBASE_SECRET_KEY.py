@@ -6,9 +6,11 @@ import firebase_image2
 import os
 from dotenv import load_dotenv
 
-#Load the .env variable for our admin key. 
+#Load the .env variable for our admin key.
 load_dotenv()
-admin_key = os.getenv('fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0')
+admin_key = os.getenv(
+    'fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0')
+print(admin_key)
 
 # Initialize Firebase
 cred = credentials.Certificate(
