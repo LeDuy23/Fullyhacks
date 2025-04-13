@@ -1,32 +1,6 @@
-# import firebase_admin
-# from firebase_admin import credentials, db
-# import json
-
-# # ✅ Initialize app ONLY ONCE, with the correct credentials and database URL
-# cred_obj = credentials.Certificate('/home/jacob/Downloads/fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0.json')
-
-# firebase_admin.initialize_app(cred_obj, {
-#     'databaseURL': 'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'  # 🔁 Replace with your actual URL
-# })
-
-# # ✅ Set an initial value
-# ref = db.reference("/")
-# ref.set({
-#     "Books": {
-#         "Best_Sellers": -1
-#     }
-# })
-
-# # ✅ Add book entries from JSON
-# ref = db.reference("/Books/Best_Sellers")
-# with open("book_info.json", "r") as f:
-#     file_contents = json.load(f)
-
-# for key, value in file_contents.items():
-#     ref.push().set(value)
-
 import firebase_admin
 from firebase_admin import credentials, db
+from datetime import datetime
 import json
 
 # Initialize Firebase
@@ -38,12 +12,29 @@ firebase_admin.initialize_app(cred, {
     'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'
 })
 
+user_id = "user123"
+
+#user metadata
+user_ref = db.reference(f'users/{user_id}')
+user_ref.set({
+    "name": "John Doe",
+    "email": "jacob@email.com",
+    "address": "123 Main St, Anytown, USA",
+    "metadata": {
+        "language": "English",
+        "currency": "USD"
+    }
+})
+
 # Load JSON
-with open("firebase/book_info.json") as f:
+with open("firebase/house_items_info.json") as f:
     data = json.load(f)
 
-# Write entire data
-ref = db.reference('users')
-ref.set(data)
+items_ref = db.reference(f'users/{user_id}/items')
 
+for key, item in data.items():
+    item['quantity'] = item.get('quantity', 1)
+    item['created_at'] = datetime.utcnow().isoformat()
+    items_ref.push().set(item)
 
+print("✅ User and items successfully added to Firebase.")
