@@ -11,8 +11,9 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-run = ["python3", "main.py"]
+run = ["sh", "-c", "npm run start"]
 deploymentTarget = "cloudrun"
+build = ["sh", "-c", "npm run build"]
 
 [workflows]
 runButton = "Run Dev Server"
@@ -24,7 +25,11 @@ mode = "sequential"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "npm install && npm run dev"
+args = "npm install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
 
 [[workflows.workflow]]
 name = "Run Dev Server"
