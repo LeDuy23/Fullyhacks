@@ -20,7 +20,7 @@ cred = credentials.Certificate(
 if not firebase_admin._apps:
     firebase_admin.initialize_app(
         cred, {
-            'fire-insurance-claim-app.firebasestorage.app':
+            'databaseURL':
             'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'
         })
 

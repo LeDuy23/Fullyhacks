@@ -5,17 +5,15 @@ import json
 import os
 from dotenv import load_dotenv
 import firebase_image2
+import mimetypes
 
 
 # Initialize Firebase
 cred_firebase = credentials.Certificate("fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json")
 
-cred_bucket = credentials.Certificate(
-    'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/')
-
 firebase_admin.initialize_app(cred_firebase, {
     'databaseURL': 'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/',
-    'storageBucket': 'fire-insurance-claim-app.appspot.com'  # ✅ Note: this is usually appspot.com, not firebasestorage.app
+    'storageBucket': 'gs://fire-insurance-claim-app.firebasestorage.app'  # ✅ Note: this is usually appspot.com, not firebasestorage.app
 })
 
 user_id = "user123"
@@ -59,10 +57,6 @@ for key, item in data.items():
     items_ref.push().set(item)
 
 print("✅ User and items successfully added to Firebase.")
-
-
-
-# ✅ Correct Firebase bucket name (NO gs://, NO .firebasestorage.app)
 
 
 
