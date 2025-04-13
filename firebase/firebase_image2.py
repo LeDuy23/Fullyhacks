@@ -1,10 +1,12 @@
 import firebase_admin
 from firebase_admin import credentials, storage
 import mimetypes
+import os
+from dotenv import load_dotenv
 
 # ✅ Correct Firebase bucket name (NO gs://, NO .firebasestorage.app)
 cred = credentials.Certificate(
-    "fire-insurance-claim-app-firebase-adminsdk-fbsvc-46ec306df0.json")
+    'fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json')
 
 firebase_admin.initialize_app(
     cred, {'storageBucket': 'fire-insurance-claim-app.firebasestorage.app'})
