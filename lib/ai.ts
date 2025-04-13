@@ -3,7 +3,7 @@ import OpenAI from 'openai';
 
 // Initialize OpenAI client
 const openai = new OpenAI({
-  apiKey: process.env.Cerebras,
+  apiKey: process.env.CEREBRAS_API_KEY,
 });
 
 // Get item suggestions for a specific room

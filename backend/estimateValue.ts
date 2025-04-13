@@ -5,7 +5,7 @@ import fetch from 'node-fetch';
 
 // Cerebras API configuration
 const CEREBRAS_API_URL = process.env.CEREBRAS_API_URL || 'https://api.cerebras.ai/prod/welcome';
-const CEREBRAS_API_KEY = process.env.Cerebras;
+const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 
 interface EstimateValueRequest {
   itemName: string;
