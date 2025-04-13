@@ -7,8 +7,7 @@ import fetch from 'node-fetch';
 const CEREBRAS_API_URL = process.env.CEREBRAS_API_URL || 'https://api.cerebras.ai/v1';
 const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 
-// Static fallback data
-import * as fallbackData from '../data/item_prices.json';
+// No longer using static fallback data from JSON
 
 interface EstimateValueRequest {
   itemName: string;
@@ -96,14 +95,56 @@ export const estimateValue = async (
   } catch (error) {
     console.error('OpenAI API error:', error);
     
-    // Try to get the value from the static data
-    const roomKey = roomType ? roomType.toLowerCase().replace(' ', '_') : '';
-    const itemKey = itemName.toLowerCase();
+    // Use an intelligent fallback system with common item estimates
+    const commonItems = {
+      "refrigerator": 1200,
+      "tv": 800, 
+      "television": 800,
+      "sofa": 1000,
+      "couch": 1000,
+      "bed": 900,
+      "chair": 150,
+      "table": 300,
+      "desk": 350,
+      "computer": 1200,
+      "laptop": 1000,
+      "dresser": 400,
+      "wardrobe": 500,
+      "bicycle": 250,
+      "microwave": 150,
+      "dishwasher": 700,
+      "stove": 900,
+      "oven": 850
+    };
     
+    // Try to match the item name to common items
+    const itemKey = itemName.toLowerCase();
     let fallbackValue = 100; // Default fallback
     
-    if (roomKey && fallbackData[roomKey] && fallbackData[roomKey][itemKey]) {
-      fallbackValue = fallbackData[roomKey][itemKey];
+    for (const [key, value] of Object.entries(commonItems)) {
+      if (itemKey.includes(key)) {
+        fallbackValue = value;
+        break;
+      }
+    }
+    
+    // If no match found, use room-based defaults
+    if (fallbackValue === 100 && roomType) {
+      const roomDefaults = {
+        "kitchen": 250,
+        "living_room": 300,
+        "living room": 300,
+        "bedroom": 200,
+        "bathroom": 150,
+        "office": 300,
+        "garage": 200,
+        "basement": 150
+      };
+      
+      const roomKey = roomType.toLowerCase();
+      if (roomDefaults[roomKey]) {
+        fallbackValue = roomDefaults[roomKey];
+      }
     }
     
     return { 
