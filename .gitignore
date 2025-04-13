@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+#Auth key for the firebase db
+fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json
