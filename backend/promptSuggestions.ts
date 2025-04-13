@@ -9,9 +9,9 @@ const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 
 // Fallback suggestions
 const fallbackSuggestions = {
-  'kitchen': ['refrigerator', 'microwave', 'dishwasher', 'stove', 'toaster', 'coffee maker', 'blender', 'pots and pans', 'utensils', 'dishes'],
+  'kitchen': ['refrigerator', 'microwave', 'dishwasher', 'stove', 'toaster', 'coffee maker', 'blender', 'pots and pans', 'utensils', 'dishes', 'airfryer'],
   'living room': ['sofa', 'coffee table', 'television', 'bookshelf', 'lamp', 'entertainment center', 'side table', 'rug', 'curtains', 'armchair'],
-  'bedroom': ['bed', 'mattress', 'dresser', 'nightstand', 'wardrobe', 'mirror', 'bedding', 'pillows', 'lamp', 'rug'],
+  'bedroom': ['bed', 'mattress', 'dresser', 'nightstand', 'wardrobe', 'mirror', 'bedding', 'pillows', 'lamp', 'rug' , 'television'],
   'bathroom': ['shower', 'sink', 'toilet', 'medicine cabinet', 'towel rack', 'mirror', 'toilet paper holder', 'shower curtain', 'bath mat', 'toiletries'],
   'office': ['desk', 'office chair', 'computer', 'monitor', 'printer', 'filing cabinet', 'bookshelf', 'desk lamp', 'keyboard', 'mouse'],
   'garage': ['tools', 'workbench', 'lawn mower', 'shelving', 'bicycle', 'garden tools', 'storage bins', 'ladder', 'power tools', 'car supplies'],
