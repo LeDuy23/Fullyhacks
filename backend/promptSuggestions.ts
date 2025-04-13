@@ -15,6 +15,7 @@ const fallbackSuggestions = {
   'bathroom': ['shower', 'sink', 'toilet', 'medicine cabinet', 'towel rack', 'mirror', 'toilet paper holder', 'shower curtain', 'bath mat', 'toiletries'],
   'office': ['desk', 'office chair', 'computer', 'monitor', 'printer', 'filing cabinet', 'bookshelf', 'desk lamp', 'keyboard', 'mouse'],
   'garage': ['tools', 'workbench', 'lawn mower', 'shelving', 'bicycle', 'garden tools', 'storage bins', 'ladder', 'power tools', 'car supplies'],
+  'backyard' : ['grill', 'patio furniture', 'garden tools', 'outdoor lighting', 'bbq', 'garden furniture', 'outdoor decor', 'pool', 'garden',]
 };
 
 interface SuggestItemsRequest {
