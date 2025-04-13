@@ -16,7 +16,7 @@ deploymentTarget = "cloudrun"
 build = ["sh", "-c", "npm run build"]
 
 [workflows]
-runButton = "Run Dev Server"
+runButton = "Next Dev Server"
 
 [[workflows.workflow]]
 name = "Run Dev Server"
@@ -39,6 +39,19 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "npm run dev"
+
+[[workflows.workflow]]
+name = "Next Dev Server"
+author = 34352409
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm install"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev -- -p 5000 -H 0.0.0.0"
 
 [[ports]]
 localPort = 3000
