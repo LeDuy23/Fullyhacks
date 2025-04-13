@@ -1,0 +1,46 @@
+
+{
+  "kitchen": {
+    "refrigerator": 1200,
+    "microwave": 150,
+    "dishwasher": 700,
+    "stove": 900,
+    "toaster": 40,
+    "coffee maker": 60
+  },
+  "living_room": {
+    "sofa": 1000,
+    "coffee table": 200,
+    "television": 800,
+    "bookshelf": 150,
+    "lamp": 70
+  },
+  "bedroom": {
+    "bed": 900,
+    "dresser": 400,
+    "nightstand": 100,
+    "wardrobe": 500,
+    "mirror": 150
+  },
+  "bathroom": {
+    "shower": 600,
+    "sink": 300,
+    "toilet": 250,
+    "medicine cabinet": 150,
+    "towel rack": 50
+  },
+  "office": {
+    "desk": 350,
+    "office chair": 200,
+    "computer": 1200,
+    "printer": 180,
+    "filing cabinet": 120
+  },
+  "garage": {
+    "tools": 500,
+    "workbench": 300,
+    "lawn mower": 350,
+    "bicycle": 250,
+    "shelving": 150
+  }
+}
