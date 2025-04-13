@@ -10,7 +10,7 @@ firebase_admin.initialize_app(
     cred,
     {
         'storageBucket':
-        'https://fire-insurance-claim-app-default-rtdb.firebaseio.com/'  # change to your real bucket
+        'fire-insurance-claim-app.appspot.com'  # change to your real bucket
     })
 
 
@@ -31,6 +31,4 @@ def upload_file_to_storage(local_file_path, storage_path):
   return blob.public_url
 
 
-upload_file_to_storage(
-    'firebase/5.png',
-    "https://fire-insurance-claim-app-default-rtdb.firebaseio.com/")
+upload_file_to_storage('firebase/5.png', "users/user123/items/5.png")
