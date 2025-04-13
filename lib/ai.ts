@@ -71,15 +71,14 @@ export async function getSuggestionsForRoom(room: string): Promise<string[]> {
     
     // Return fallback items based on room
     const fallbacks: Record<string, string[]> = {
-      'kitchen': ['refrigerator', 'microwave', 'dishwasher', 'stove', 'toaster', 'coffee maker'],
-      'living room': ['sofa', 'coffee table', 'television', 'bookshelf', 'lamp'],
-      'bedroom': ['bed', 'dresser', 'nightstand', 'wardrobe', 'mirror'],
-      'bathroom': ['shower', 'sink', 'toilet', 'medicine cabinet', 'towel rack'],
-      'office': ['desk', 'office chair', 'computer', 'printer', 'filing cabinet'],
-      'garage': ['tools', 'workbench', 'lawn mower', 'bicycle', 'shelving'],
-      'laundry room': ['washing machine', 'dryer', 'iron', 'ironing board', 'laundry basket'],
-      'backyard': ['grill', 'patio furniture', 'garden tools', 'outdoor lighting', 'bbq'],
-      'basement': ['storage bins', 'shelving', 'tools', 'workbench', 'furniture'],
+       'Kitchen': ['refrigerator', 'microwave', 'dishwasher', 'stove', 'toaster', 'coffee maker', 'blender', 'pots and pans', 'utensils', 'dishes', 'airfryer'],
+        'living room': ['sofa', 'coffee table', 'television', 'bookshelf', 'lamp', 'entertainment center', 'side table', 'rug', 'curtains', 'armchair'],
+        'bedroom': ['bed', 'mattress', 'dresser', 'nightstand', 'wardrobe', 'mirror', 'bedding', 'pillows', 'lamp', 'rug' , 'television'],
+        'Bathroom': ['shower', 'sink', 'toilet', 'medicine cabinet', 'towel rack', 'mirror', 'toilet paper holder', 'shower curtain', 'bath mat', 'toiletries'],
+         'laundry room': ['washing machine', 'dryer', 'iron', 'ironing board', 'drying rack', 'storage bins', 'shelving', 'laundry basket', 'laundry detergent', 'laundry soap'], 
+          'garage': ['tools', 'workbench', 'lawn mower', 'shelving', 'bicycle', 'garden tools', 'storage bins', 'ladder', 'power tools', 'car supplies'],
+          'backyard': ['grill', 'patio furniture', 'garden tools', 'outdoor lighting', 'bbq', 'garden furniture', 'outdoor decor', 'pool', 'garden'],   
+        'basement': ['storage bins', 'shelving', 'tools', 'workbench', 'furniture', 'appliances', 'electronics', 'sports equipment', 'gym equipment', 'office supplies']
     };
     
     return fallbacks[room.toLowerCase()] || ['chair', 'table', 'lamp', 'shelf', 'cabinet'];
