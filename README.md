@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Fullyhacks
-=======
 
 # Wildfire Claim App
 
@@ -27,4 +24,3 @@ A collaborative application for managing wildfire insurance claims.
 2. Install dependencies: `npm install`
 3. Create a `.env.local` file with your Firebase and OpenAI credentials
 4. Run the development server: `npm run dev`
->>>>>>> 560f1b0 (Assistant checkpoint: Created full file structure for wildfire claim app)
