@@ -124,21 +124,48 @@ export async function estimateItemValue(
   } catch (error) {
     console.error('Cerebras API error:', error);
     
-    // Return a fallback value
-    // Try to get the value from the static data
-    try {
-      const fallbackData = require('../data/item_prices.json');
-      const roomKey = roomType.toLowerCase().replace(/\s+/g, '_');
-      const itemKey = itemName.toLowerCase();
-      
-      if (fallbackData[roomKey] && fallbackData[roomKey][itemKey]) {
-        return fallbackData[roomKey][itemKey];
+    // Return an educated guess based on the item type
+    const commonItems = {
+      "refrigerator": 1200,
+      "tv": 800, 
+      "television": 800,
+      "sofa": 1000,
+      "couch": 1000,
+      "bed": 900,
+      "chair": 150,
+      "table": 300,
+      "desk": 350,
+      "computer": 1200,
+      "laptop": 1000,
+      "dresser": 400,
+      "wardrobe": 500,
+      "bicycle": 250,
+      "microwave": 150,
+      "dishwasher": 700,
+      "stove": 900,
+      "oven": 850
+    };
+    
+    // Try to match the item name to common items
+    const itemKey = itemName.toLowerCase();
+    for (const [key, value] of Object.entries(commonItems)) {
+      if (itemKey.includes(key)) {
+        return value;
       }
-    } catch (fallbackError) {
-      console.error('Error loading fallback data:', fallbackError);
     }
     
-    // Generic fallback
-    return 100;
+    // If no match, return a reasonable default based on room type
+    const roomDefaults = {
+      "kitchen": 250,
+      "living_room": 300,
+      "bedroom": 200,
+      "bathroom": 150,
+      "office": 300,
+      "garage": 200,
+      "basement": 150
+    };
+    
+    const roomKey = roomType?.toLowerCase().replace(/\s+/g, '_');
+    return roomDefaults[roomKey] || 100;
   }
 }
