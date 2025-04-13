@@ -5,10 +5,7 @@ import currency from 'currency.js';
 export const currencies = {
   USD: '$',
   EUR: '€',
-  GBP: '£',
-  JPY: '¥',
-  CAD: 'C$',
-  AUD: 'A$',
+  MXN: 'Mex$',
 };
 
 type CurrencyCode = keyof typeof currencies;
@@ -18,10 +15,7 @@ type CurrencyCode = keyof typeof currencies;
 const exchangeRates = {
   USD: 1,
   EUR: 0.92,
-  GBP: 0.79,
-  JPY: 149.68,
-  CAD: 1.36,
-  AUD: 1.51,
+  MXN: 17.23,
 };
 
 // Convert amount from one currency to another
@@ -53,6 +47,6 @@ export function formatCurrency(
   
   return currency(amount, {
     symbol: symbol,
-    precision: currencyCode === 'JPY' ? 0 : 2,
+    precision: 2,
   }).format();
 }
