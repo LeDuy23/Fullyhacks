@@ -1,13 +1,11 @@
 
 import * as functions from 'firebase-functions';
-import { Configuration, OpenAIApi } from 'openai';
 import * as admin from 'firebase-admin';
+import fetch from 'node-fetch';
 
-// Initialize OpenAI API
-const configuration = new Configuration({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const openai = new OpenAIApi(configuration);
+// Cerebras API configuration
+const CEREBRAS_API_URL = process.env.CEREBRAS_API_URL || 'https://api.cerebras.ai/v1';
+const CEREBRAS_API_KEY = process.env.CEREBRAS_API_KEY;
 
 // Fallback suggestions
 const fallbackSuggestions = {
@@ -23,7 +21,7 @@ interface SuggestItemsRequest {
   roomType: string;
 }
 
-// Get item suggestions for a specific room using OpenAI
+// Get item suggestions for a specific room using Cerebras AI
 export const promptSuggestions = async (
   data: SuggestItemsRequest,
   context: functions.https.CallableContext
@@ -56,21 +54,31 @@ export const promptSuggestions = async (
       userId: context.auth.uid,
       prompt,
       type: 'suggest_items',
-      model: 'gpt-3.5-turbo',
+      model: 'cerebras',
       timestamp: admin.firestore.FieldValue.serverTimestamp(),
       success: false, // Will update to true if successful
     });
     
-    // Call OpenAI API
-    const response = await openai.createCompletion({
-      model: 'text-davinci-003',
-      prompt,
-      max_tokens: 250,
-      temperature: 0.7,
+    // Call Cerebras API
+    const response = await fetch(`${CEREBRAS_API_URL}/completions`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${CEREBRAS_API_KEY}`
+      },
+      body: JSON.stringify({
+        prompt,
+        max_tokens: 250,
+        temperature: 0.7
+      })
     });
     
-    // Process the response
-    const content = response.data.choices[0].text?.trim() || '';
+    if (!response.ok) {
+      throw new Error(`Cerebras API error: ${response.statusText}`);
+    }
+    
+    const responseData = await response.json();
+    const content = responseData.choices[0].text?.trim() || '';
     
     // Extract JSON array from the response
     let suggestions = [];
@@ -83,7 +91,7 @@ export const promptSuggestions = async (
         suggestions = JSON.parse(content);
       }
     } catch (error) {
-      throw new Error('Invalid response format from OpenAI');
+      throw new Error('Invalid response format from Cerebras');
     }
     
     // Update the log entry with success
@@ -95,7 +103,7 @@ export const promptSuggestions = async (
     
     return { suggestions };
   } catch (error) {
-    console.error('OpenAI API error:', error);
+    console.error('Cerebras API error:', error);
     
     // Provide fallback suggestions based on room type
     const roomKey = roomType.toLowerCase();
