@@ -11,6 +11,7 @@ import mimetypes
 cred_firebase = credentials.Certificate(
     "fire-insurance-claim-app-firebase-adminsdk-fbsvc-1a0e50a113.json")
 
+if not firebase_admin._apps:
 firebase_admin.initialize_app(
     cred_firebase,
     {
