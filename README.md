@@ -1,17 +1,26 @@
 
 # Wildfire Claim App
 
-A Next.js application designed to help users catalog and estimate the value of items lost in wildfires for insurance claims.
+A collaborative application for managing wildfire insurance claims.
+
+## Team Structure
+
+- **Front-end:** Bryan
+- **Back-end:** Jacob
+- **AI Integration:** Duy
 
 ## Features
-- Item value estimation using AI
-- Firebase integration for authentication and data storage
-- Responsive design for mobile and desktop
 
-## Setup
-1. Install dependencies: `npm install`
-2. Set up environment variables
-3. Run the development server: `npm run dev`
+- Language and currency selection
+- Room and item selection interface
+- Item form with photo upload
+- Summary page with PDF export
+- AI-powered item suggestions and price estimates
+- Firebase backend with secure authentication and storage
 
-## API Keys
-The application requires a Cerebras API key for the item estimation feature. Add this to your environment variables.
+## Getting Started
+
+1. Clone this repository
+2. Install dependencies: `npm install`
+3. Create a `.env.local` file with your Firebase and OpenAI credentials
+4. Run the development server: `npm run dev`
