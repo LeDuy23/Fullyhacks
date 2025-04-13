@@ -51,6 +51,10 @@ args = "npm install"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
+args = "npx kill-port 5000"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
 args = "npm run dev -- -p 5000 -H 0.0.0.0"
 
 [[ports]]
