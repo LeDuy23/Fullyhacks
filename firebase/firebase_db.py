@@ -2,8 +2,6 @@ import firebase_admin
 from firebase_admin import credentials, db, storage
 from datetime import datetime
 import json
-import os
-from dotenv import load_dotenv
 import firebase_image2
 import mimetypes
 
