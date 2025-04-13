@@ -1,17 +1,23 @@
 
+import currency from 'currency.js';
+
 // Available currencies and their symbols
 export const currencies = {
   USD: '$',
   EUR: '€',
-  GBP: '£',
-  JPY: '¥',
-  CAD: 'C$',
-  AUD: 'A$',
+  MXN: 'Mex$',
 };
 
 type CurrencyCode = keyof typeof currencies;
 
-// Convert amount from one currency to another
+// Exchange rates (for simplicity, we'll use static rates)
+const exchangeRates = {
+  USD: 1,
+  EUR: 0.92,
+  MXN: 17.23,
+};
+
+
 export async function convertCurrency(
   amount: number,
   from: CurrencyCode = 'USD',
@@ -20,16 +26,10 @@ export async function convertCurrency(
   if (from === to) return amount;
 
   try {
-    const response = await fetch(
-      `https://api.exchangerate-api.com/v4/latest/${from}?api_key=${process.env.CURRENCY_API_KEY}`
-    );
-    
-    if (!response.ok) {
-      throw new Error('Currency conversion failed');
-    }
-    
-    const data = await response.json();
-    return amount * data.rates[to];
+    // Convert to USD first (as base currency)
+    const amountInUSD = amount / exchangeRates[from];
+    // Then convert from USD to target currency
+    return amountInUSD * exchangeRates[to];
   } catch (error) {
     console.error('Currency conversion error:', error);
     // Return original amount if conversion fails
@@ -40,10 +40,12 @@ export async function convertCurrency(
 // Format a number as currency
 export function formatCurrency(
   amount: number,
-  currency: CurrencyCode = 'USD'
+  currencyCode: CurrencyCode = 'USD'
 ): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency,
-  }).format(amount);
+  const symbol = currencies[currencyCode];
+  
+  return currency(amount, {
+    symbol: symbol,
+    precision: 2,
+  }).format();
 }

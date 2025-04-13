@@ -1,0 +1,59 @@
+{
+  "Living Room": {
+    "Sofa": {
+      "Description": "A 3-seater leather sofa",
+      "Price": 500,
+      "Attachments": [
+        "https://example.com/images/sofa.jpg",
+        "https://example.com/docs/sofa_receipt.pdf"
+      ]
+    },
+    "TV": {
+      "Description": "55-inch 4K smart television",
+      "Price": 800,
+      "Attachments": ["https://example.com/images/tv.jpg"]
+    },
+    "Coffee Table": {
+      "Description": "Wooden table with glass top",
+      "Price": 150,
+      "Attachments": []
+    }
+  },
+  "Bedroom": {
+    "Bed": {
+      "Description": "Queen-size bed with storage",
+      "Price": 700,
+      "Attachments": ["https://example.com/images/bed.jpg"]
+    },
+    "Wardrobe": {
+      "Description": "4-door wooden wardrobe",
+      "Price": 400,
+      "Attachments": []
+    },
+    "Lamp": {
+      "Description": "Bedside lamp with warm light",
+      "Price": 50,
+      "Attachments": []
+    }
+  },
+  "Garage": {
+    "Toolbox": {
+      "Description": "Complete mechanical toolbox set",
+      "Price": 120,
+      "Attachments": ["https://example.com/images/toolbox.jpg"]
+    },
+    "Bicycle": {
+      "Description": "Mountain bike, 21-speed",
+      "Price": 300,
+      "Attachments": [
+        "https://example.com/images/bike.jpg",
+        "https://example.com/docs/bike_warranty.pdf"
+      ]
+    },
+    "Lawn Mower": {
+      "Description": "Electric mower with grass catcher",
+      "Price": 250,
+      "Attachments": []
+    }
+  }
+}
