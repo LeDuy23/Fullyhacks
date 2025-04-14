@@ -7,6 +7,7 @@ A collaborative application for managing wildfire insurance claims.
 
 - **Front-end:** Bryan
 - **Back-end:** Jacob
+- - **Back-end:** Philip
 - **AI Integration:** Duy
 
 ## Features
