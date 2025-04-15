@@ -21,6 +21,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import ImageUploader from "./ImageUploader";
+import ItemDetailsAIAssistant from "./ItemDetailsAIAssistant";
 import { useClaimContext } from "@/context/ClaimContext";
 import { useToast } from "@/hooks/use-toast";
 
@@ -228,6 +229,14 @@ const ItemForm: React.FC<ItemFormProps> = ({
                 <FormMessage />
               </FormItem>
             )}
+          />
+          
+          {/* AI Assistant to help find prices and retailer links */}
+          <ItemDetailsAIAssistant 
+            name={form.watch("name")}
+            description={form.watch("description") || ""}
+            category={form.watch("category") || ""}
+            onPriceEstimateSelected={(price) => form.setValue("cost", price)}
           />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
