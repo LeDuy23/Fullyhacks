@@ -40,6 +40,14 @@ const translations: TranslationMap = {
     "ZH": "个人信息",
     "JA": "個人情報"
   },
+  "personal_info_desc": {
+    "EN": "Please provide your personal information to help us process your claim accurately.",
+    "ES": "Por favor, proporcione su información personal para ayudarnos a procesar su reclamo con precisión.",
+    "FR": "Veuillez fournir vos informations personnelles pour nous aider à traiter votre réclamation avec précision.",
+    "DE": "Bitte geben Sie Ihre persönlichen Daten an, damit wir Ihren Anspruch korrekt bearbeiten können.",
+    "ZH": "请提供您的个人信息，以帮助我们准确处理您的索赔。",
+    "JA": "正確に請求を処理するために、個人情報をご提供ください。"
+  },
   "room_selection": {
     "EN": "Room Selection",
     "ES": "Selección de Habitaciones",
@@ -81,6 +89,14 @@ const translations: TranslationMap = {
     "DE": "Vollständiger Name",
     "ZH": "全名",
     "JA": "氏名"
+  },
+  "full_name_placeholder": {
+    "EN": "John Doe",
+    "ES": "Juan Pérez",
+    "FR": "Jean Dupont",
+    "DE": "Max Mustermann",
+    "ZH": "张三",
+    "JA": "山田太郎"
   },
   "email": {
     "EN": "Email",
