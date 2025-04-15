@@ -34,7 +34,7 @@ type PersonalInfoFormData = z.infer<typeof personalInfoSchema>;
 
 const PersonalInfo: React.FC = () => {
   const [, setLocation] = useLocation();
-  const { claimant, setClaimant, language, currency } = useClaimContext();
+  const { claimant, setClaimant, setClaim, language, currency } = useClaimContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -74,7 +74,9 @@ const PersonalInfo: React.FC = () => {
       });
       const claim = await claimResponse.json();
 
+      // Update both claimant and claim in the context
       setClaimant(savedClaimant);
+      setClaim(claim);
       
       toast({
         title: "Information Saved",
