@@ -67,13 +67,13 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
                 className="px-3 py-1 text-sm rounded-md hover:bg-slate-100 text-slate-600"
                 onClick={() => alert("Help section will be implemented here")}
               >
-                Help
+                {t("help")}
               </button>
               <button 
                 className="px-3 py-1 text-sm rounded-md hover:bg-slate-100 text-slate-600"
                 onClick={handleRecallDocuments}
               >
-                Recall Documents
+                {t("recall_documents")}
               </button>
             </div>
             
@@ -119,12 +119,12 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <i className="ri-shield-check-fill text-primary-600"></i>
-              <span className="text-sm text-slate-600">© 2023 InsureClaim</span>
+              <span className="text-sm text-slate-600">{t('copyright')}</span>
             </div>
             <div className="flex space-x-6">
-              <a href="#" className="text-sm text-slate-600 hover:text-primary-600">Help</a>
-              <a href="#" className="text-sm text-slate-600 hover:text-primary-600">Privacy</a>
-              <a href="#" className="text-sm text-slate-600 hover:text-primary-600">Terms</a>
+              <a href="#" className="text-sm text-slate-600 hover:text-primary-600">{t('help')}</a>
+              <a href="#" className="text-sm text-slate-600 hover:text-primary-600">{t('privacy')}</a>
+              <a href="#" className="text-sm text-slate-600 hover:text-primary-600">{t('terms')}</a>
             </div>
           </div>
         </div>
