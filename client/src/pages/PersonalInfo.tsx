@@ -153,9 +153,9 @@ const PersonalInfo: React.FC = () => {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Phone Number</FormLabel>
+                        <FormLabel>{t('phone_number')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="(555) 123-4567" {...field} />
+                          <Input placeholder={t('phone_placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -167,9 +167,9 @@ const PersonalInfo: React.FC = () => {
                     name="policyNumber"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Policy Number (optional)</FormLabel>
+                        <FormLabel>{t('policy_number')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="POL-12345678" {...field} />
+                          <Input placeholder={t('policy_number_placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -178,16 +178,16 @@ const PersonalInfo: React.FC = () => {
                 </div>
 
                 <div>
-                  <h3 className="text-md font-semibold text-slate-800 mb-3">Property Address</h3>
+                  <h3 className="text-md font-semibold text-slate-800 mb-3">{t('property_address')}</h3>
                   <div className="grid grid-cols-1 gap-4">
                     <FormField
                       control={form.control}
                       name="streetAddress"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel>Street Address</FormLabel>
+                          <FormLabel>{t('street_address')}</FormLabel>
                           <FormControl>
-                            <Input placeholder="123 Main St" {...field} />
+                            <Input placeholder={t('street_address_placeholder')} {...field} />
                           </FormControl>
                           <FormMessage />
                         </FormItem>
@@ -200,9 +200,9 @@ const PersonalInfo: React.FC = () => {
                         name="city"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>City</FormLabel>
+                            <FormLabel>{t('city')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="Anytown" {...field} />
+                              <Input placeholder={t('city_placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -214,9 +214,9 @@ const PersonalInfo: React.FC = () => {
                         name="state"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>State</FormLabel>
+                            <FormLabel>{t('state')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="California" {...field} />
+                              <Input placeholder={t('state_placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -230,9 +230,9 @@ const PersonalInfo: React.FC = () => {
                         name="zipCode"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Zip Code</FormLabel>
+                            <FormLabel>{t('zip_code')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="12345" {...field} />
+                              <Input placeholder={t('zip_code_placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -244,9 +244,9 @@ const PersonalInfo: React.FC = () => {
                         name="country"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Country</FormLabel>
+                            <FormLabel>{t('country')}</FormLabel>
                             <FormControl>
-                              <Input placeholder="United States" {...field} />
+                              <Input placeholder={t('country_placeholder')} {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -262,7 +262,7 @@ const PersonalInfo: React.FC = () => {
                     variant="outline"
                     onClick={() => setLocation("/")}
                   >
-                    Back
+                    {t('back')}
                   </Button>
                   
                   <Button 
@@ -275,10 +275,10 @@ const PersonalInfo: React.FC = () => {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        <span>Saving...</span>
+                        <span>{t('saving')}</span>
                       </>
                     ) : (
-                      "Continue to Room Selection"
+                      t('continue_to_room_selection')
                     )}
                   </Button>
                 </div>
