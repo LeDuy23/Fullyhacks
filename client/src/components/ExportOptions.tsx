@@ -276,7 +276,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
       <div className="bg-slate-50 rounded-lg border border-slate-200 p-4">
         
         <div className="grid grid-cols-1 gap-3 mb-4">
-          <div className="text-sm font-semibold text-slate-700 mb-2">General Templates</div>
+          <div className="text-sm font-semibold text-slate-700 mb-2">Major Insurance Company Templates</div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
             <div className="relative">
               <input 
@@ -292,8 +292,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
               >
                 <i className="ri-file-list-3-line text-2xl text-slate-600 mb-1"></i>
-                <span className="text-sm font-medium text-slate-700">Standard</span>
-                <span className="text-xs text-slate-500">Simple itemized list</span>
+                <span className="text-sm font-medium text-slate-700">Farmers</span>
+                <span className="text-xs text-slate-500">Farmers Insurance standard</span>
               </label>
             </div>
             
@@ -311,8 +311,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
               >
                 <i className="ri-file-text-line text-2xl text-slate-600 mb-1"></i>
-                <span className="text-sm font-medium text-slate-700">Detailed</span>
-                <span className="text-xs text-slate-500">Includes photos & descriptions</span>
+                <span className="text-sm font-medium text-slate-700">Liberty Mutual</span>
+                <span className="text-xs text-slate-500">Detailed with photos</span>
               </label>
             </div>
             
@@ -330,8 +330,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
               >
                 <i className="ri-file-damage-line text-2xl text-slate-600 mb-1"></i>
-                <span className="text-sm font-medium text-slate-700">Insurance Claim</span>
-                <span className="text-xs text-slate-500">Official claim format</span>
+                <span className="text-sm font-medium text-slate-700">Progressive</span>
+                <span className="text-xs text-slate-500">Progressive official format</span>
               </label>
             </div>
           </div>
@@ -352,8 +352,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
               >
                 <i className="ri-fire-line text-2xl text-orange-500 mb-1"></i>
-                <span className="text-sm font-medium text-slate-700">Wildfire Basic</span>
-                <span className="text-xs text-slate-500">Simple wildfire claim list</span>
+                <span className="text-sm font-medium text-slate-700">State Farm</span>
+                <span className="text-xs text-slate-500">State Farm wildfire claim</span>
               </label>
             </div>
             
@@ -371,8 +371,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
               >
                 <i className="ri-file-damage-fill text-2xl text-orange-600 mb-1"></i>
-                <span className="text-sm font-medium text-slate-700">Wildfire Detailed</span>
-                <span className="text-xs text-slate-500">Comprehensive fire claim</span>
+                <span className="text-sm font-medium text-slate-700">Allstate</span>
+                <span className="text-xs text-slate-500">Allstate wildfire claim</span>
               </label>
             </div>
             
@@ -390,8 +390,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
               >
                 <i className="ri-alarm-warning-line text-2xl text-red-600 mb-1"></i>
-                <span className="text-sm font-medium text-slate-700">Wildfire Rush</span>
-                <span className="text-xs text-slate-500">Expedited claim processing</span>
+                <span className="text-sm font-medium text-slate-700">USAA</span>
+                <span className="text-xs text-slate-500">USAA expedited claim</span>
               </label>
             </div>
           </div>
@@ -409,24 +409,25 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
         </div>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-6">
+        <div className="text-sm text-center mb-3 text-slate-600">Once you've selected the appropriate template, click the button below to generate your claim document</div>
         <Button
           onClick={handleExportPDF}
           disabled={isExporting}
-          className="inline-flex justify-center items-center"
+          className="inline-flex justify-center items-center w-full py-5 text-lg font-medium bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700"
         >
           {isExporting ? (
             <>
-              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              <span>Generating PDF...</span>
+              <span>Generating Insurance Claim PDF...</span>
             </>
           ) : (
             <>
-              <i className="ri-file-download-line mr-1"></i>
-              Export PDF
+              <i className="ri-file-download-line mr-2 text-xl"></i>
+              Generate Insurance Claim PDF
             </>
           )}
         </Button>
