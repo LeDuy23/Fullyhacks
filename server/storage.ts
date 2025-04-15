@@ -236,7 +236,26 @@ export class MemStorage implements IStorage {
   async createItem(insertItem: InsertItem): Promise<Item> {
     const id = this.currentItemId++;
     const createdAt = new Date();
-    const item: Item = { ...insertItem, id, createdAt };
+    const updatedAt = new Date();
+    const item: Item = { 
+      ...insertItem, 
+      id, 
+      createdAt,
+      updatedAt,
+      brand: insertItem.brand || null,
+      description: insertItem.description || null,
+      category: insertItem.category || null,
+      purchaseDate: insertItem.purchaseDate || null,
+      retailer: insertItem.retailer || null,
+      modelNumber: insertItem.modelNumber || null,
+      serialNumber: insertItem.serialNumber || null,
+      notes: insertItem.notes || null,
+      warranty: insertItem.warranty || null,
+      imageUrls: insertItem.imageUrls || [],
+      tags: insertItem.tags || null,
+      createdBy: insertItem.createdBy || null,
+      updatedBy: insertItem.updatedBy || null
+    };
     this.items.set(id, item);
     return item;
   }
@@ -273,7 +292,11 @@ export class MemStorage implements IStorage {
       ...insertDocumentation, 
       id, 
       createdAt, 
-      updatedAt 
+      updatedAt,
+      description: insertDocumentation.description || null,
+      sourceUrl: insertDocumentation.sourceUrl || null,
+      sourceName: insertDocumentation.sourceName || null,
+      metadata: insertDocumentation.metadata || null
     };
     this.documentations.set(id, documentation);
     return documentation;
@@ -311,7 +334,8 @@ export class MemStorage implements IStorage {
       ...duplicate, 
       id, 
       createdAt, 
-      updatedAt 
+      updatedAt,
+      status: duplicate.status || "pending"
     };
     this.potentialDuplicates.set(id, potentialDuplicate);
     return potentialDuplicate;
@@ -416,7 +440,9 @@ export class MemStorage implements IStorage {
       ...insertCollaborator, 
       id, 
       createdAt, 
-      updatedAt 
+      updatedAt,
+      role: insertCollaborator.role || "viewer",
+      inviteStatus: insertCollaborator.inviteStatus || "pending"
     };
     this.collaborators.set(id, collaborator);
     return collaborator;
