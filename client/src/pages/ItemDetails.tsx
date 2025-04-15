@@ -151,13 +151,54 @@ const ItemDetails: React.FC = () => {
 
             <div className="border-t border-slate-200 pt-6">
               <div className="flex flex-col md:flex-row gap-4 justify-between">
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => setLocation("/room-selection")}
-                >
-                  Back
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    onClick={() => setLocation("/room-selection")}
+                  >
+                    Back to Rooms
+                  </Button>
+                  
+                  <div className="relative group">
+                    <Button 
+                      type="button" 
+                      variant="secondary"
+                      className="flex items-center"
+                    >
+                      Change Room <i className="ri-arrow-down-s-line ml-1"></i>
+                    </Button>
+                    <div className="absolute left-0 mt-1 w-56 bg-white border border-slate-200 rounded-md shadow-lg z-10 hidden group-hover:block">
+                      <div className="py-1">
+                        {selectedRooms.map(roomId => (
+                          <button 
+                            key={roomId}
+                            onClick={() => {
+                              setSelectedRoom(roomId);
+                              // Update URL to reflect room change
+                              setLocation(`/item-details/${roomId}`);
+                            }}
+                            className={`block w-full text-left px-4 py-2 text-sm ${
+                              selectedRoom === roomId 
+                                ? "bg-primary-50 text-primary-700" 
+                                : "hover:bg-slate-100 text-slate-700"
+                            }`}
+                          >
+                            <i className={`${
+                              roomId === "living-room" ? "ri-sofa-line" : 
+                              roomId === "kitchen" ? "ri-fridge-line" :
+                              roomId === "master-bedroom" ? "ri-hotel-bed-line" :
+                              roomId === "bathroom" ? "ri-shower-line" :
+                              roomId === "garage" ? "ri-parking-box-line" :
+                              "ri-home-line"
+                            } mr-2`}></i>
+                            {getRoomName(roomId)}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 
                 <Button onClick={handleContinue}>
                   Continue to Review

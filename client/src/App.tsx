@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import PersonalInfo from "@/pages/PersonalInfo";
 import RoomSelection from "@/pages/RoomSelection";
 import ItemDetails from "@/pages/ItemDetails";
+import ReviewPage from "@/pages/ReviewPage";
 import ReviewSubmit from "@/pages/ReviewSubmit";
 import AppShell from "@/components/layouts/AppShell";
 import { ClaimProvider } from "@/context/ClaimContext";
