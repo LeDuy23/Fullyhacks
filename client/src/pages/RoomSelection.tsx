@@ -28,15 +28,20 @@ const RoomSelection: React.FC = () => {
   const { toast } = useToast();
 
   useEffect(() => {
+    console.log("RoomSelection - current claim state:", claim);
+    
     if (!claim) {
+      console.log("No claim found in context, redirecting to personal info");
       toast({
         title: "No active claim",
         description: "Please complete the personal information step first.",
         variant: "destructive"
       });
       setLocation("/personal-info");
+    } else {
+      console.log("Claim found in context:", claim);
     }
-  }, [claim, setLocation]);
+  }, [claim, setLocation, toast]);
 
   const handleRoomSelect = (roomId: string) => {
     setSelectedRoom(roomId);

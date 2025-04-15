@@ -53,9 +53,16 @@ export const ClaimProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   const [language, setLanguage] = useState<string>("EN");
   const [currency, setCurrency] = useState<string>("USD");
   
-  // Claimant and claim data
-  const [claimant, setClaimant] = useState<Claimant | null>(null);
-  const [claim, setClaim] = useState<Claim | null>(null);
+  // Claimant and claim data - initialize from localStorage if available
+  const [claimant, setClaimant] = useState<Claimant | null>(() => {
+    const savedClaimant = localStorage.getItem('claimant');
+    return savedClaimant ? JSON.parse(savedClaimant) : null;
+  });
+  
+  const [claim, setClaim] = useState<Claim | null>(() => {
+    const savedClaim = localStorage.getItem('claim');
+    return savedClaim ? JSON.parse(savedClaim) : null;
+  });
   
   // Room selection
   const [selectedRooms, setSelectedRooms] = useState<string[]>([]);
@@ -63,6 +70,19 @@ export const ClaimProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   
   // Map to store room IDs from the backend
   const [roomsData, setRoomsData] = useState<Map<string, number>>(new Map());
+  
+  // Custom setters that also update localStorage
+  const setClaimantWithStorage = (newClaimant: Claimant) => {
+    localStorage.setItem('claimant', JSON.stringify(newClaimant));
+    setClaimant(newClaimant);
+    console.log("Claimant saved to localStorage:", newClaimant);
+  };
+  
+  const setClaimWithStorage = (newClaim: Claim) => {
+    localStorage.setItem('claim', JSON.stringify(newClaim));
+    setClaim(newClaim);
+    console.log("Claim saved to localStorage:", newClaim);
+  };
   
   const addRoom = (roomId: string) => {
     setSelectedRooms(prev => {
@@ -101,8 +121,8 @@ export const ClaimProvider: React.FC<{ children: ReactNode }> = ({ children }) =
         setCurrency,
         claimant,
         claim,
-        setClaimant,
-        setClaim,
+        setClaimant: setClaimantWithStorage,
+        setClaim: setClaimWithStorage,
         selectedRooms,
         selectedRoom,
         addRoom,

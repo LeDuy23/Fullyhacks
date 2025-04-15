@@ -73,17 +73,26 @@ const PersonalInfo: React.FC = () => {
         status: "draft",
       });
       const claim = await claimResponse.json();
+      
+      console.log("Claim created:", claim);
+      console.log("Claimant created:", savedClaimant);
 
       // Update both claimant and claim in the context
       setClaimant(savedClaimant);
       setClaim(claim);
+      
+      console.log("After setting context - claim:", claim);
       
       toast({
         title: "Information Saved",
         description: "Your personal information has been saved."
       });
 
-      setLocation("/room-selection");
+      // Add a small delay to ensure context state is updated before navigation
+      setTimeout(() => {
+        console.log("Navigating to room selection with claim:", claim);
+        setLocation("/room-selection");
+      }, 100);
     } catch (error) {
       console.error("Error saving personal info:", error);
       toast({
