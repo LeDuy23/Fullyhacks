@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { useClaimContext } from "@/context/ClaimContext";
+import { languages } from "@/components/LanguageCurrencySelector";
 
 interface AppShellProps {
   children: React.ReactNode;
@@ -9,9 +10,35 @@ interface AppShellProps {
 const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const [, setLocation] = useLocation();
   const { language, setLanguage } = useClaimContext();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLanguage(e.target.value);
+  // Get the language name for display
+  const currentLanguageName = languages.find(l => l.code === language)?.name || "English";
+  
+  // Close the dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleLanguageChange = (langCode: string) => {
+    setLanguage(langCode);
+    setDropdownOpen(false);
+    
+    // Apply application-wide language change effect here
+    // This could include reloading content, updating translations, etc.
+    document.documentElement.lang = langCode.toLowerCase();
+    
+    // NOTE: In a real application, we would load language-specific content here
   };
 
   const handleRecallDocuments = () => {
@@ -47,20 +74,33 @@ const AppShell: React.FC<AppShellProps> = ({ children }) => {
                 Recall Documents
               </button>
             </div>
-            <div className="relative">
-              <select
-                className="flex items-center space-x-1 px-3 py-1 rounded-md hover:bg-slate-100 bg-transparent text-slate-700 border-none appearance-none pr-8 focus:outline-none focus:ring-0"
-                value={language}
-                onChange={handleLanguageChange}
+            
+            {/* Enhanced Language Dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center space-x-1 px-3 py-1 rounded-md hover:bg-slate-100 text-slate-700 focus:outline-none"
               >
-                <option value="EN">EN</option>
-                <option value="ES">ES</option>
-                <option value="FR">FR</option>
-                <option value="DE">DE</option>
-                <option value="ZH">ZH</option>
-                <option value="JA">JA</option>
-              </select>
-              <i className="ri-arrow-down-s-line absolute right-1 top-1/2 transform -translate-y-1/2"></i>
+                <span className="hidden sm:inline">{currentLanguageName}</span>
+                <span className="sm:hidden">{language}</span>
+                <i className={`ri-arrow-${dropdownOpen ? 'up' : 'down'}-s-line ml-1`}></i>
+              </button>
+              
+              {dropdownOpen && (
+                <div className="absolute right-0 mt-1 py-2 w-48 bg-white rounded-md shadow-lg border border-slate-200 z-20">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      className={`block w-full text-left px-4 py-2 text-sm hover:bg-slate-100 ${
+                        language === lang.code ? 'bg-slate-50 text-primary-600 font-medium' : 'text-slate-700'
+                      }`}
+                      onClick={() => handleLanguageChange(lang.code)}
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>

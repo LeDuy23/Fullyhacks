@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import LanguageCurrencySelector from "@/components/LanguageCurrencySelector";
+import CurrencySelector from "@/components/LanguageCurrencySelector";
 import StepNavigator from "@/components/StepNavigator";
 
 const Home: React.FC = () => {
@@ -28,7 +28,7 @@ const Home: React.FC = () => {
               <p className="text-slate-600">We'll help you create a detailed inventory for your insurance claim.</p>
             </div>
 
-            <LanguageCurrencySelector />
+            <CurrencySelector />
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8">
               <div className="flex">
