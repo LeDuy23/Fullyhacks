@@ -15,6 +15,7 @@ import {
 import { Input } from "@/components/ui/input";
 import StepNavigator from "@/components/StepNavigator";
 import { useClaimContext } from "@/context/ClaimContext";
+import { useTranslationContext } from "@/context/TranslationContext";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -35,6 +36,7 @@ type PersonalInfoFormData = z.infer<typeof personalInfoSchema>;
 const PersonalInfo: React.FC = () => {
   const [, setLocation] = useLocation();
   const { claimant, setClaimant, setClaim, language, currency } = useClaimContext();
+  const { t } = useTranslationContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -112,8 +114,8 @@ const PersonalInfo: React.FC = () => {
       <div className="container mx-auto px-4 pb-12">
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-xl font-bold text-slate-800 mb-2">Personal Information</h2>
-            <p className="text-slate-600 mb-6">Enter your details to create a new claim document. You can choose from various insurance company templates in the final step.</p>
+            <h2 className="text-xl font-bold text-slate-800 mb-2">{t('personal_info')}</h2>
+            <p className="text-slate-600 mb-6">{t('personal_info_desc')}</p>
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -123,9 +125,9 @@ const PersonalInfo: React.FC = () => {
                     name="fullName"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Full Name</FormLabel>
+                        <FormLabel>{t('full_name')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="John Doe" {...field} />
+                          <Input placeholder={t('full_name_placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -137,9 +139,9 @@ const PersonalInfo: React.FC = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Email Address</FormLabel>
+                        <FormLabel>{t('email_address')}</FormLabel>
                         <FormControl>
-                          <Input placeholder="john.doe@example.com" {...field} />
+                          <Input placeholder={t('email_placeholder')} {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
