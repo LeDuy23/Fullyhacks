@@ -1,0 +1,127 @@
+
+Goals:
+Help users remember and document lost/damaged items
+Proof - in the form of pictures, receipts, etc.
+Submit and share with the insurance company 
+Support multiple languages and currencies 
+
+Features: 
+Core: 
+Upload Pictures, Receipts, etc. – Upload image tool
+Select Language & Currency - Simple dropdown to prompt users for language 
+Select Room (Living Room, Master bedroom, Bathroom, Kitchen, garage) 
+List of common items (Other features) 
+Estimate cost function per item listed  - Output avg. Cost of typed item + prompt user to enter manual value
+Chapt GPT prompting “Do you remember if there was a TV in the bedroom?” 
+Quantity feature - Enter the quantity of item that is lost 
+Submit Claim Data - Export as PDF 
+
+
+
+Stretch:
+ 
+Currency Conversion Feature
+
+
+User Flow:
+ Welcome Screen/Home page
+Welcome Screen 
+Language + Currency Drop Down
+Click here to recall your last documents 
+Itemized List 
+Name + Address + State
+Select Room (Kitchen , living room , Bathroom , bedroom, backyard ,garage,laundry room,basement ) 
+Item name 
+- description 
+ cost 
+Upload Photo and/or Receipt for Item
+Any last items? 
+Summary + Review Page 
+Show itemized list
+Option to edit/delete 
+Button to Export PDF 
+
+
+
+
+Front-end: Next.js (React Framework) or shadcn/ui or Chakra UI	
+
+Back-end: Firebase (Firestore + Auth + Storage) 
+
+Deployment: Github
+
+Front-end Tasks: Bryan
+Setup project (Next.js + Tailwind + shadcn/ui or Chakra UI)
+
+ Create Welcome page: language + currency dropdowns
+
+Build Room & Item Selection UI
+
+ Build Item Form (name, cost, quantity, upload photo)
+
+ Add Item List + Summary page
+
+Add PDF export button
+
+ Connect forms to backend (Firebase)
+
+
+
+Back-end Tasks: Jacob & Philip
+
+
+Setup Firebase project (Auth, Firestore, Storage)
+
+
+Create database schema (items, users, metadata) - Address 
+
+
+Setup file upload (images, receipts) - Support jpg, png, HEIC.
+
+
+Integrate currency conversion API
+
+
+Create endpoint / function to estimate item values (or static dataset lookup)
+
+
+Set up image blurring (via Cloudinary or Canvas)
+
+Firebase security rules
+
+Lock read/write access per user (even if you're using anonymous auth)
+
+Prevent public access to someone else's items or photos
+
+
+PDF & Submission Tasks: Duy
+
+Convert item list into a PDF (via html2pdf.js or react-to-print)
+
+Add "Edit/Delete" buttons on summary screen
+
+Handle PDF download or share via email
+
+Format PDF with clear structure (name, address, rooms, items, photos)
+
+
+
+AI Integration: Duy
+
+Use Node.js in Firebase for AI integration.
+
+Prompt for room-based item suggestions
+
+Use OpenAI to suggest average prices
+
+Return AI results in structured JSON, not just plain text
+
+Add fallback messages if AI fails (rate limits, errors)
+
+
+Static fallback values if OpenAI API fails
+Example: kitchen → ['microwave', 'fridge', 'toaster']
+
+Keeps UX from breaking if OpenAI has an outage or rate limits
+
+ Basic prompt logging (for debugging or demo insights)
