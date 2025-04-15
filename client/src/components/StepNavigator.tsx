@@ -12,7 +12,8 @@ const steps: Step[] = [
   { number: 2, name: "Personal Info", path: "/personal-info" },
   { number: 3, name: "Room Selection", path: "/room-selection" },
   { number: 4, name: "Item Details", path: "/item-details" },
-  { number: 5, name: "Choose Template", path: "/review" },
+  { number: 5, name: "Review Items", path: "/review" },
+  { number: 6, name: "Choose Template", path: "/template-selection" },
 ];
 
 const StepNavigator: React.FC = () => {
@@ -31,7 +32,7 @@ const StepNavigator: React.FC = () => {
   return (
     <div className="container mx-auto mt-6 px-4">
       <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-4 mb-6">
-        <ol className="grid grid-cols-1 md:grid-cols-5 gap-2 text-sm">
+        <ol className="grid grid-cols-1 md:grid-cols-6 gap-2 text-sm">
           {steps.map((step, index) => (
             <li key={step.number} className="flex items-center">
               <span 

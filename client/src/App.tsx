@@ -19,7 +19,8 @@ function Router() {
       <Route path="/personal-info" component={PersonalInfo} />
       <Route path="/room-selection" component={RoomSelection} />
       <Route path="/item-details/:roomId?" component={ItemDetails} />
-      <Route path="/review" component={ReviewSubmit} />
+      <Route path="/review" component={ReviewPage} />
+      <Route path="/template-selection" component={ReviewSubmit} />
       <Route component={NotFound} />
     </Switch>
   );
