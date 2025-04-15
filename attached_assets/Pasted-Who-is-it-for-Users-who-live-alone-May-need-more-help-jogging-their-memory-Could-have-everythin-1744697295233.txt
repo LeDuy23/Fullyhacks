@@ -1,0 +1,60 @@
+Who is it for?  
+Users who live alone
+May need more help jogging their memory  
+Could have everything in their name (simpler ownership)
+Users with different household sizes and relationships with cohabitants
+Large multi-generational family, or roommates 
+May involve complex shared ownership situations
+Multiple insurance policies might be involved
+Different people may prefer using different languages 
+Users facing different levels of loss: 
+Users who lost everything -> must rely completely on memory and existing documentation 
+Users who lost some items -> want to proactively document remaining items
+Language, culture 
+Non-native English speakers
+Culture-specific items 
+Currency conversion (“I purchased this TV in Canada and brought it to the US, what’s the value in US dollars?”)
+Accessibility
+Poor vision
+May or may not be proficient with technology
+What are the user needs? 
+I need help jogging my memory about the items I own
+I need to find existing documentation: receipts, photos, videos, etc
+I need to prioritize what the insurance company needs:
+P0: list of items, their descriptions, estimated value, photos
+P1: proof of purchase 
+I need to quickly estimate the value of my items
+I want to blur some parts of photos before submitting them
+What’s the high-level user journey?
+Select preferred language and currency, and provide context about my home
+Use existing documentation to start building my inventory
+Recall additional items
+Add details to each item
+Share information with insurance company 
+What are we building?
+
+Step 1: User selects their preferred language and currency, and provides context about their home 
+
+Show the user a checklist of rooms and major appliances in each. The user confirms which items they own. E.g., 
+Living room
+Couch
+Lamp
+Coffee table
+Kitchen
+Microwave
+Airfryer
+Sink
+Bathroom  
+Washing machine
+Dryer
+Light fixtures
+
+Step 2: Use existing documentation 
+
+Teach users how to find existing receipts, purchase records, photos, and videos, so that they can upload them to the website 
+Include links to download purchase data from Amazon, Walmart, etc., 
+For emails, recommend the user to open their email app and search keywords, e.g., “insurance,” “renovation,” “receipt,” “purchase history.” Then, download or screenshot relevant emails, and upload them to the website. 
+For Photos apps,  recommend the user to open their Photos app (Google, Apple, Facebook album), e.g., “home decor,” “appliance,” “living room,” “bedroom,” “kitchen,” “cooking,” “desk.” Then, upload photos to the website. 
+Then, the tool compiles a list of items and their respective photos, and asks the user to confirm
+Recognize duplicates: if the user purchased a coffee machine, and you detect a similar item in their photo, assume it the same item and ask the user to confirm 
+Allow multiple users to collaborate on creating this inventory across multiple sessions
