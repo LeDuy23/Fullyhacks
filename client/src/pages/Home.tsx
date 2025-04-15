@@ -25,7 +25,15 @@ const Home: React.FC = () => {
             <div className="text-center mb-8">
               <i className="ri-shield-check-fill text-primary-600 text-5xl mb-4"></i>
               <h2 className="text-2xl font-bold text-slate-800 mb-2">Document Your Lost or Damaged Items</h2>
-              <p className="text-slate-600">We'll help you create a detailed inventory for your insurance claim.</p>
+              <p className="text-slate-600">Create a detailed inventory and generate documents using different insurance company templates.</p>
+              <div className="mt-4 flex justify-center gap-2 flex-wrap">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">State Farm</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Allstate</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">USAA</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Progressive</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Liberty Mutual</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Farmers</span>
+              </div>
             </div>
 
             <CurrencySelector />
@@ -36,14 +44,15 @@ const Home: React.FC = () => {
                   <i className="ri-information-line text-blue-500"></i>
                 </div>
                 <div className="ml-3">
-                  <h3 className="text-sm font-medium text-blue-800">Why document your items?</h3>
+                  <h3 className="text-sm font-medium text-blue-800">How It Works</h3>
                   <div className="mt-2 text-sm text-blue-700">
-                    <p>Proper documentation helps you:</p>
+                    <p>Start documenting your items right away. No existing claim or account needed:</p>
                     <ul className="list-disc pl-5 mt-1 space-y-1">
-                      <li>Remember all your lost or damaged possessions</li>
-                      <li>Provide proof with photos and receipts</li>
-                      <li>Easily share information with your insurance company</li>
-                      <li>Get fair compensation for your losses</li>
+                      <li>Enter your basic information</li>
+                      <li>Document your items room by room</li>
+                      <li>Add photos, receipts, and details</li>
+                      <li>Choose from various insurance company templates</li>
+                      <li>Generate and download your claim document</li>
                     </ul>
                   </div>
                 </div>

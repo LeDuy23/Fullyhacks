@@ -12,7 +12,7 @@ const steps: Step[] = [
   { number: 2, name: "Personal Info", path: "/personal-info" },
   { number: 3, name: "Room Selection", path: "/room-selection" },
   { number: 4, name: "Item Details", path: "/item-details" },
-  { number: 5, name: "Review & Submit", path: "/review" },
+  { number: 5, name: "Choose Template", path: "/review" },
 ];
 
 const StepNavigator: React.FC = () => {

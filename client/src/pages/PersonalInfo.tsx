@@ -101,7 +101,8 @@ const PersonalInfo: React.FC = () => {
       <div className="container mx-auto px-4 pb-12">
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-xl font-bold text-slate-800 mb-6">Personal Information</h2>
+            <h2 className="text-xl font-bold text-slate-800 mb-2">Personal Information</h2>
+            <p className="text-slate-600 mb-6">Enter your details to create a new claim document. You can choose from various insurance company templates in the final step.</p>
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
