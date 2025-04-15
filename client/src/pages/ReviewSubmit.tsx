@@ -233,8 +233,18 @@ const ReviewSubmit: React.FC = () => {
       <div className="container mx-auto px-4 pb-12">
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
           <div className="max-w-3xl mx-auto">
-            <h2 className="text-xl font-bold text-slate-800 mb-4">Review Your Claim</h2>
-            <p className="text-slate-600 mb-6">Please review all the information before submitting.</p>
+            <h2 className="text-xl font-bold text-slate-800 mb-2">Choose a Template & Generate Your Document</h2>
+            <p className="text-slate-600 mb-2">Select the appropriate insurance company template for your needs.</p>
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <div className="flex items-start">
+                <div className="flex-shrink-0 mt-0.5">
+                  <i className="ri-information-line text-blue-500"></i>
+                </div>
+                <div className="ml-3">
+                  <p className="text-sm text-blue-700">Each insurance company has different requirements for claim submissions. Choose the template that matches your provider, or use a general template if you're not sure.</p>
+                </div>
+              </div>
+            </div>
 
             {/* Personal Information Section */}
             <div className="mb-8">
@@ -399,36 +409,53 @@ const ReviewSubmit: React.FC = () => {
             )}
 
             <div className="border-t border-slate-200 pt-6">
+              <div className="flex flex-col mb-8">
+                <h3 className="text-md font-semibold text-slate-800 mb-3">Generate Your Document</h3>
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-100">
+                  <div className="flex flex-col sm:flex-row justify-between items-center mb-4">
+                    <div>
+                      <h4 className="text-md font-medium text-slate-800">Ready to create your document?</h4>
+                      <p className="text-sm text-slate-600 mt-1">
+                        Select a template above and click the button below to generate your claim document.
+                      </p>
+                    </div>
+                    <Button
+                      type="button"
+                      size="lg"
+                      className="mt-4 sm:mt-0 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700"
+                      disabled={!summary || summary.rooms.length === 0}
+                      onClick={() => {
+                        if (claim?.id) {
+                          document.getElementById("export-pdf-btn")?.click();
+                        }
+                      }}
+                    >
+                      <i className="ri-file-download-line mr-1"></i>
+                      Generate Document
+                    </Button>
+                  </div>
+                  <div className="text-xs text-slate-500 mt-1">
+                    Your document will be generated based on the template selected above. You can then download, print, or share it with your insurance company.
+                  </div>
+                </div>
+              </div>
+              
               <div className="flex flex-col md:flex-row gap-4 justify-between">
                 <Button
                   type="button"
                   variant="outline"
                   onClick={() => setLocation("/item-details")}
                 >
-                  Back
+                  Back to Items
                 </Button>
-                <div className="flex flex-col sm:flex-row gap-3">
-                  <Button
-                    type="button"
-                    variant="outline"
-                    onClick={handleSaveDraft}
-                  >
-                    <i className="ri-save-line mr-1"></i>
-                    Save Draft
-                  </Button>
-                  <Button
-                    type="button"
-                    disabled={!summary || summary.rooms.length === 0}
-                    onClick={() => {
-                      if (claim?.id) {
-                        document.getElementById("export-pdf-btn")?.click();
-                      }
-                    }}
-                  >
-                    <i className="ri-file-download-line mr-1"></i>
-                    Export PDF
-                  </Button>
-                </div>
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={handleSaveDraft}
+                >
+                  <i className="ri-save-line mr-1"></i>
+                  Save Draft
+                </Button>
               </div>
             </div>
           </div>

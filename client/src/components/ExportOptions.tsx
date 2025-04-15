@@ -270,10 +270,10 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
   };
 
   return (
-    <div className="mb-8">
-      <h3 className="text-md font-semibold text-slate-800 mb-3">Export Options</h3>
+    <div className="mb-6">
+      <h3 className="text-md font-semibold text-slate-800 mb-2">Choose an Insurance Company Template</h3>
+      <p className="text-sm text-slate-600 mb-3">Select the appropriate template based on your insurance company's requirements:</p>
       <div className="bg-slate-50 rounded-lg border border-slate-200 p-4">
-        <p className="text-sm text-slate-700 mb-3">Choose a template for your exported PDF:</p>
         
         <div className="grid grid-cols-1 gap-3 mb-4">
           <div className="text-sm font-semibold text-slate-700 mb-2">General Templates</div>
@@ -336,7 +336,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
             </div>
           </div>
           
-          <div className="text-sm font-semibold text-slate-700 mb-2">Wildfire Claim Templates</div>
+          <div className="text-sm font-semibold text-slate-700 mb-2">Wildfire Insurance Company Templates</div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="relative">
               <input 
