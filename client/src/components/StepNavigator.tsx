@@ -1,23 +1,33 @@
 import React from "react";
 import { useLocation } from "wouter";
+import { useClaimContext } from "@/context/ClaimContext";
+import { useTranslation } from "@/utils/translations";
 
 interface Step {
   number: number;
-  name: string;
+  key: string; // Translation key
   path: string;
 }
 
-const steps: Step[] = [
-  { number: 1, name: "Welcome", path: "/" },
-  { number: 2, name: "Personal Info", path: "/personal-info" },
-  { number: 3, name: "Room Selection", path: "/room-selection" },
-  { number: 4, name: "Item Details", path: "/item-details" },
-  { number: 5, name: "Review Items", path: "/review" },
-  { number: 6, name: "Choose Template", path: "/template-selection" },
+const stepDefinitions: Step[] = [
+  { number: 1, key: "welcome_title", path: "/" },
+  { number: 2, key: "personal_info", path: "/personal-info" },
+  { number: 3, key: "room_selection", path: "/room-selection" },
+  { number: 4, key: "item_details", path: "/item-details" },
+  { number: 5, key: "review_items", path: "/review" },
+  { number: 6, key: "choose_template", path: "/template-selection" },
 ];
 
 const StepNavigator: React.FC = () => {
   const [location] = useLocation();
+  const { language } = useClaimContext();
+  const { t } = useTranslation(language);
+  
+  // Create steps with translated names
+  const steps = stepDefinitions.map(step => ({
+    ...step,
+    name: t(step.key)
+  }));
   
   // Determine current step based on the location
   const getCurrentStepIndex = (): number => {
