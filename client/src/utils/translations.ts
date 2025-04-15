@@ -138,6 +138,94 @@ const translations: TranslationMap = {
     "ZH": "国家",
     "JA": "国"
   },
+  "policy_number": {
+    "EN": "Policy Number (optional)",
+    "ES": "Número de Póliza (opcional)",
+    "FR": "Numéro de Police (facultatif)",
+    "DE": "Policennummer (optional)",
+    "ZH": "保单号码 (可选)",
+    "JA": "保険証券番号（任意）"
+  },
+  "policy_number_placeholder": {
+    "EN": "POL-12345678",
+    "ES": "POL-12345678",
+    "FR": "POL-12345678",
+    "DE": "POL-12345678",
+    "ZH": "POL-12345678",
+    "JA": "POL-12345678"
+  },
+  "property_address": {
+    "EN": "Property Address",
+    "ES": "Dirección de la Propiedad",
+    "FR": "Adresse de la Propriété",
+    "DE": "Immobilienadresse",
+    "ZH": "房产地址",
+    "JA": "物件住所"
+  },
+  "street_address": {
+    "EN": "Street Address",
+    "ES": "Dirección",
+    "FR": "Adresse",
+    "DE": "Straßenadresse",
+    "ZH": "街道地址",
+    "JA": "町名・番地"
+  },
+  "street_address_placeholder": {
+    "EN": "123 Main St",
+    "ES": "123 Calle Principal",
+    "FR": "123 Rue Principale",
+    "DE": "123 Hauptstraße",
+    "ZH": "123 主街道",
+    "JA": "123 メイン通り"
+  },
+  "city_placeholder": {
+    "EN": "Anytown",
+    "ES": "Cualquier Ciudad",
+    "FR": "Ville Quelconque",
+    "DE": "Irgendstadt",
+    "ZH": "任何城市",
+    "JA": "どこか市"
+  },
+  "state_placeholder": {
+    "EN": "California",
+    "ES": "California",
+    "FR": "Californie",
+    "DE": "Kalifornien",
+    "ZH": "加利福尼亚",
+    "JA": "カリフォルニア"
+  },
+  "zip_code_placeholder": {
+    "EN": "12345",
+    "ES": "12345",
+    "FR": "12345",
+    "DE": "12345",
+    "ZH": "12345",
+    "JA": "12345"
+  },
+  "country_placeholder": {
+    "EN": "United States",
+    "ES": "Estados Unidos",
+    "FR": "États-Unis",
+    "DE": "Vereinigte Staaten",
+    "ZH": "美国",
+    "JA": "アメリカ合衆国"
+  },
+  "saving": {
+    "EN": "Saving...",
+    "ES": "Guardando...",
+    "FR": "Sauvegarde...",
+    "DE": "Speicherung...",
+    "ZH": "保存中...",
+    "JA": "保存中..."
+  },
+  "continue_to_room_selection": {
+    "EN": "Continue to Room Selection",
+    "ES": "Continuar a Selección de Habitaciones",
+    "FR": "Continuer à la Sélection des Pièces",
+    "DE": "Weiter zur Raumauswahl",
+    "ZH": "继续到房间选择",
+    "JA": "部屋の選択へ進む"
+  },
   
   // Room names
   "living_room": {

@@ -139,9 +139,9 @@ const PersonalInfo: React.FC = () => {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t('email_address')}</FormLabel>
+                        <FormLabel>{t('email')}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t('email_placeholder')} {...field} />
+                          <Input placeholder="john.doe@example.com" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -153,9 +153,9 @@ const PersonalInfo: React.FC = () => {
                     name="phone"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{t('phone_number')}</FormLabel>
+                        <FormLabel>{t('phone')}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t('phone_placeholder')} {...field} />
+                          <Input placeholder="(555) 123-4567" {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
