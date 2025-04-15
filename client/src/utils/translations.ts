@@ -16,6 +16,22 @@ const translations: TranslationMap = {
     "ZH": "欢迎使用InsureClaim",
     "JA": "InsureClaimへようこそ"
   },
+  "help": {
+    "EN": "Help",
+    "ES": "Ayuda",
+    "FR": "Aide",
+    "DE": "Hilfe",
+    "ZH": "帮助",
+    "JA": "ヘルプ"
+  },
+  "recall_documents": {
+    "EN": "Recall Documents",
+    "ES": "Recuperar Documentos",
+    "FR": "Rappeler Documents",
+    "DE": "Dokumente Abrufen",
+    "ZH": "恢复文档",
+    "JA": "書類の呼び出し"
+  },
   "personal_info": {
     "EN": "Personal Information",
     "ES": "Información Personal",
@@ -263,6 +279,32 @@ const translations: TranslationMap = {
     "DE": "Kaufdatum",
     "ZH": "购买日期",
     "JA": "購入日"
+  },
+  
+  // Footer
+  "privacy": {
+    "EN": "Privacy",
+    "ES": "Privacidad",
+    "FR": "Confidentialité",
+    "DE": "Datenschutz",
+    "ZH": "隐私",
+    "JA": "プライバシー"
+  },
+  "terms": {
+    "EN": "Terms",
+    "ES": "Términos",
+    "FR": "Conditions",
+    "DE": "Bedingungen",
+    "ZH": "条款",
+    "JA": "利用規約"
+  },
+  "copyright": {
+    "EN": "© 2023 InsureClaim",
+    "ES": "© 2023 InsureClaim",
+    "FR": "© 2023 InsureClaim",
+    "DE": "© 2023 InsureClaim",
+    "ZH": "© 2023 InsureClaim",
+    "JA": "© 2023 InsureClaim"
   }
 };
 

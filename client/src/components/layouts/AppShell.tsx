@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
 import { useClaimContext } from "@/context/ClaimContext";
+import { useTranslationContext } from "@/context/TranslationContext";
 import { languages } from "@/components/LanguageCurrencySelector";
 
 interface AppShellProps {
@@ -10,6 +11,7 @@ interface AppShellProps {
 const AppShell: React.FC<AppShellProps> = ({ children }) => {
   const [, setLocation] = useLocation();
   const { language, setLanguage } = useClaimContext();
+  const { t } = useTranslationContext();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 

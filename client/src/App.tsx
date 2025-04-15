@@ -11,6 +11,7 @@ import ReviewPage from "@/pages/ReviewPage";
 import ReviewSubmit from "@/pages/ReviewSubmit";
 import AppShell from "@/components/layouts/AppShell";
 import { ClaimProvider } from "@/context/ClaimContext";
+import { TranslationProvider } from "@/context/TranslationContext";
 
 function Router() {
   return (
@@ -30,10 +31,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <ClaimProvider>
-        <AppShell>
-          <Router />
-        </AppShell>
-        <Toaster />
+        <TranslationProvider>
+          <AppShell>
+            <Router />
+          </AppShell>
+          <Toaster />
+        </TranslationProvider>
       </ClaimProvider>
     </QueryClientProvider>
   );
