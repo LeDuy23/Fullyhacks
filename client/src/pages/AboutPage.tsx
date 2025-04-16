@@ -17,19 +17,19 @@ const AboutPage: React.FC = () => {
       name: "Duy Le",
       role: "CS Student",
       bio: "My name is Duy, I am a Junior in computer science and I am interested in AI and fintech, specifically in quantitative finance. In my free time I like to golf and gamble.",
-      icon: "ri-code-s-slash-line"
+      icon: "ri-user-3-line"
     },
     {
       name: "Jacob Fishel",
       role: "CS Student",
       bio: "My name is Jacob, I am a Junior in computer science and I am interested in AI and machine learning, specifically computer vision. In my free time I'm either gaming or hanging out with my friends.",
-      icon: "ri-brain-line"
+      icon: "ri-user-3-line"
     },
     {
       name: "Philip Ma",
       role: "CS Student",
       bio: "My name is Philip Ma. I'm a 3rd year computer science student with an interest in Fintech. I love reading and working out in my free time too.",
-      icon: "ri-database-2-line"
+      icon: "ri-user-3-line"
     }
   ];
 
