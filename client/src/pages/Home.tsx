@@ -25,14 +25,13 @@ const Home: React.FC = () => {
             <div className="text-center mb-8">
               <i className="ri-shield-check-fill text-primary-600 text-5xl mb-4"></i>
               <h2 className="text-2xl font-bold text-slate-800 mb-2">Document Your Lost or Damaged Items</h2>
-              <p className="text-slate-600">Create a detailed inventory and generate documents using different insurance company templates.</p>
+              <p className="text-slate-600">Create a detailed inventory and generate professional documentation to support your insurance claims.</p>
               <div className="mt-4 flex justify-center gap-2 flex-wrap">
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">State Farm</span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Allstate</span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">USAA</span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Progressive</span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Liberty Mutual</span>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Farmers</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Basic Format</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Detailed Format</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">Wildfire Claims</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">With Purchase Dates</span>
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">With Photos</span>
               </div>
             </div>
 
@@ -51,7 +50,7 @@ const Home: React.FC = () => {
                       <li>Enter your basic information</li>
                       <li>Document your items room by room</li>
                       <li>Add photos, receipts, and details</li>
-                      <li>Choose from various insurance company templates</li>
+                      <li>Choose from various document format templates</li>
                       <li>Generate and download your claim document</li>
                     </ul>
                   </div>

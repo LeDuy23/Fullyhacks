@@ -234,14 +234,14 @@ const ReviewSubmit: React.FC = () => {
         <div className="bg-white rounded-lg shadow-sm border border-slate-200 p-6">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-xl font-bold text-slate-800 mb-2">Choose a Template & Generate Your Document</h2>
-            <p className="text-slate-600 mb-2">Select the appropriate insurance company template for your needs.</p>
+            <p className="text-slate-600 mb-2">Select a template format to organize your inventory information.</p>
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
               <div className="flex items-start">
                 <div className="flex-shrink-0 mt-0.5">
                   <i className="ri-information-line text-blue-500"></i>
                 </div>
                 <div className="ml-3">
-                  <p className="text-sm text-blue-700">Each insurance company has different requirements for claim submissions. Choose the template that matches your provider, or use a general template if you're not sure.</p>
+                  <p className="text-sm text-blue-700">Our templates provide formats similar to those used by common insurance providers, but they are not exact replicas of official forms. These templates help you organize information in a professional format that most insurance companies can process. Please check with your insurance provider for their specific requirements.</p>
                 </div>
               </div>
             </div>

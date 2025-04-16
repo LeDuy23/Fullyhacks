@@ -290,7 +290,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
         <div className="grid grid-cols-1 gap-3 mb-4">
           <div className="flex items-center gap-2 border-b pb-2 mb-3">
             <i className="ri-shield-check-line text-xl text-primary-600"></i>
-            <h3 className="text-md font-semibold text-slate-800">Major Insurance Company Templates</h3>
+            <h3 className="text-md font-semibold text-slate-800">Standard Format Templates</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
             <div className="relative">
@@ -374,7 +374,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
           
           <div className="flex items-center gap-2 border-b pb-2 mb-3 mt-4">
             <i className="ri-fire-fill text-xl text-orange-500"></i>
-            <h3 className="text-md font-semibold text-slate-800">Wildfire Insurance Company Templates</h3>
+            <h3 className="text-md font-semibold text-slate-800">Wildfire-Specific Templates</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="relative">
@@ -424,8 +424,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                     </span>
                   )}
                 </div>
-                <span className="text-sm font-medium text-slate-700">Allstate</span>
-                <span className="text-xs text-slate-500">Allstate wildfire claim</span>
+                <span className="text-sm font-medium text-slate-700">Allstate-Style</span>
+                <span className="text-xs text-slate-500">Detailed wildfire format</span>
               </label>
             </div>
             
@@ -450,8 +450,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                     </span>
                   )}
                 </div>
-                <span className="text-sm font-medium text-slate-700">USAA</span>
-                <span className="text-xs text-slate-500">USAA expedited claim</span>
+                <span className="text-sm font-medium text-slate-700">USAA-Style</span>
+                <span className="text-xs text-slate-500">Expedited claim format</span>
               </label>
             </div>
           </div>
