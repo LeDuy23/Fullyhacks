@@ -22,6 +22,7 @@ import {
 } from "@/components/ui/select";
 import ImageUploader from "./ImageUploader";
 import ItemDetailsAIAssistant from "./ItemDetailsAIAssistant";
+import CurrencyConverter from "./CurrencyConverter";
 import { useClaimContext } from "@/context/ClaimContext";
 import { useToast } from "@/hooks/use-toast";
 
@@ -262,6 +263,13 @@ const ItemForm: React.FC<ItemFormProps> = ({
                     </div>
                   </FormControl>
                   <FormMessage />
+                  {/* Currency Converter for foreign purchases */}
+                  <CurrencyConverter 
+                    onConvertedValue={(value) => {
+                      form.setValue("cost", value.toString());
+                    }}
+                    defaultValue={field.value ? parseFloat(field.value) : 0}
+                  />
                 </FormItem>
               )}
             />
