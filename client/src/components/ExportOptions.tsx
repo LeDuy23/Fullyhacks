@@ -289,7 +289,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
               />
               <label 
                 htmlFor="template-standard" 
-                className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
+                className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
                 <i className="ri-file-list-3-line text-2xl text-slate-600 mb-1"></i>
                 <span className="text-sm font-medium text-slate-700">Farmers</span>
@@ -308,7 +308,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
               />
               <label 
                 htmlFor="template-detailed" 
-                className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
+                className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
                 <i className="ri-file-text-line text-2xl text-slate-600 mb-1"></i>
                 <span className="text-sm font-medium text-slate-700">Liberty Mutual</span>
@@ -327,7 +327,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
               />
               <label 
                 htmlFor="template-insurance" 
-                className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
+                className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
                 <i className="ri-file-damage-line text-2xl text-slate-600 mb-1"></i>
                 <span className="text-sm font-medium text-slate-700">Progressive</span>

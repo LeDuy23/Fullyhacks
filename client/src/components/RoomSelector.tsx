@@ -68,27 +68,27 @@ const RoomSelector: React.FC<RoomSelectorProps> = ({ onRoomSelect }) => {
       {rooms.map((room) => (
         <div
           key={room.id}
-          className={`room-card cursor-pointer bg-white border ${
+          className={`room-card cursor-pointer bg-white border-2 ${
             selectedRooms.includes(room.id)
-              ? "border-primary-500 bg-blue-50 shadow-md"
-              : "border-slate-200 hover:border-primary-500 hover:bg-blue-50"
-          } rounded-lg p-4 transition-all`}
+              ? "border-primary-600 bg-blue-50 shadow-md transform scale-105 transition-all duration-200"
+              : "border-slate-200 hover:border-primary-400 hover:bg-blue-50"
+          } rounded-lg p-4 transition-all duration-200`}
           onClick={() => handleRoomClick(room.id)}
         >
           <div className="flex items-center mb-2">
-            <div className={`flex items-center justify-center w-10 h-10 rounded-full mr-2 ${
+            <div className={`flex items-center justify-center w-12 h-12 rounded-full mr-3 ${
               selectedRooms.includes(room.id) 
-                ? "bg-primary-100 text-primary-600" 
+                ? "bg-primary-100 text-primary-600 ring-2 ring-primary-200" 
                 : "bg-slate-100 text-slate-700"
-            }`}>
-              <i className={`${room.icon} text-xl`}></i>
+            } transition-all duration-200`}>
+              <i className={`${room.icon} text-2xl`}></i>
             </div>
             <h3 className={`font-medium ${
               selectedRooms.includes(room.id) ? "text-primary-700" : "text-slate-800"
             }`}>{room.name}</h3>
             {selectedRooms.includes(room.id) && (
-              <span className="ml-auto bg-primary-500 text-white text-xs px-2 py-1 rounded-full">
-                Selected
+              <span className="ml-auto flex items-center bg-gradient-to-r from-primary-500 to-primary-600 text-white text-xs px-2 py-1 rounded-full font-semibold">
+                <i className="ri-check-line mr-1"></i> Selected
               </span>
             )}
           </div>
