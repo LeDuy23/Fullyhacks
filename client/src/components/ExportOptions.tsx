@@ -272,7 +272,19 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
   return (
     <div className="mb-6">
       <h3 className="text-md font-semibold text-slate-800 mb-2">Choose an Insurance Company Template</h3>
-      <p className="text-sm text-slate-600 mb-3">Select the appropriate template based on your insurance company's requirements:</p>
+      <p className="text-sm text-slate-600 mb-3">Select a template format aligned with common insurance company requirements:</p>
+      <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+        <div className="flex items-start">
+          <div className="flex-shrink-0 mt-0.5">
+            <i className="ri-information-line text-yellow-500"></i>
+          </div>
+          <div className="ml-3">
+            <p className="text-sm text-yellow-700">
+              <strong>Important:</strong> These templates are designed to help you organize your claim information in a format similar to what insurance companies typically require. Always check with your specific insurance provider for their exact submission requirements.
+            </p>
+          </div>
+        </div>
+      </div>
       <div className="bg-slate-50 rounded-lg border border-slate-200 p-4">
         
         <div className="grid grid-cols-1 gap-3 mb-4">
@@ -302,8 +314,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                     </span>
                   )}
                 </div>
-                <span className="text-sm font-medium text-slate-700">Farmers</span>
-                <span className="text-xs text-slate-500">Farmers Insurance standard</span>
+                <span className="text-sm font-medium text-slate-700">Farmers-Style</span>
+                <span className="text-xs text-slate-500">Basic inventory format</span>
               </label>
             </div>
             
@@ -328,8 +340,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                     </span>
                   )}
                 </div>
-                <span className="text-sm font-medium text-slate-700">Liberty Mutual</span>
-                <span className="text-xs text-slate-500">Detailed with photos</span>
+                <span className="text-sm font-medium text-slate-700">Liberty Mutual-Style</span>
+                <span className="text-xs text-slate-500">Detailed with descriptions</span>
               </label>
             </div>
             
@@ -354,8 +366,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                     </span>
                   )}
                 </div>
-                <span className="text-sm font-medium text-slate-700">Progressive</span>
-                <span className="text-xs text-slate-500">Progressive official format</span>
+                <span className="text-sm font-medium text-slate-700">Progressive-Style</span>
+                <span className="text-xs text-slate-500">Includes purchase dates</span>
               </label>
             </div>
           </div>
@@ -386,8 +398,8 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                     </span>
                   )}
                 </div>
-                <span className="text-sm font-medium text-slate-700">State Farm</span>
-                <span className="text-xs text-slate-500">State Farm wildfire claim</span>
+                <span className="text-sm font-medium text-slate-700">State Farm-Style</span>
+                <span className="text-xs text-slate-500">Basic wildfire format</span>
               </label>
             </div>
             
