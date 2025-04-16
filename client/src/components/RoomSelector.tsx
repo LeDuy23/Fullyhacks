@@ -28,6 +28,12 @@ const rooms: Room[] = [
     description: "Furniture, clothing, jewelry"
   },
   {
+    id: "second-bedroom",
+    name: "Second Bedroom",
+    icon: "ri-community-line",
+    description: "Guest room, kids room, office"
+  },
+  {
     id: "bathroom",
     name: "Bathroom",
     icon: "ri-shower-line",
@@ -38,6 +44,36 @@ const rooms: Room[] = [
     name: "Garage",
     icon: "ri-parking-box-line",
     description: "Tools, equipment, storage"
+  },
+  {
+    id: "dining-room",
+    name: "Dining Room",
+    icon: "ri-restaurant-line",
+    description: "Table, chairs, serving ware"
+  },
+  {
+    id: "home-office",
+    name: "Home Office",
+    icon: "ri-computer-line",
+    description: "Desk, computer, supplies"
+  },
+  {
+    id: "basement",
+    name: "Basement",
+    icon: "ri-home-gear-line",
+    description: "Storage, furniture, appliances"
+  },
+  {
+    id: "attic",
+    name: "Attic",
+    icon: "ri-archive-line",
+    description: "Storage, memorabilia, seasonal items"
+  },
+  {
+    id: "outdoor",
+    name: "Outdoor",
+    icon: "ri-plant-line",
+    description: "Patio, garden, equipment"
   },
   {
     id: "other",

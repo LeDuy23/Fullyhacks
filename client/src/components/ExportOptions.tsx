@@ -291,7 +291,14 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 htmlFor="template-standard" 
                 className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
-                <i className="ri-file-list-3-line text-2xl text-slate-600 mb-1"></i>
+                <div className="relative">
+                  <i className="ri-file-list-3-line text-2xl text-slate-600 mb-1"></i>
+                  {selectedTemplate === "standard" && (
+                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary-500 text-white text-xs">
+                      <i className="ri-check-line"></i>
+                    </span>
+                  )}
+                </div>
                 <span className="text-sm font-medium text-slate-700">Farmers</span>
                 <span className="text-xs text-slate-500">Farmers Insurance standard</span>
               </label>
@@ -310,7 +317,14 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 htmlFor="template-detailed" 
                 className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
-                <i className="ri-file-text-line text-2xl text-slate-600 mb-1"></i>
+                <div className="relative">
+                  <i className="ri-file-text-line text-2xl text-slate-600 mb-1"></i>
+                  {selectedTemplate === "detailed" && (
+                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary-500 text-white text-xs">
+                      <i className="ri-check-line"></i>
+                    </span>
+                  )}
+                </div>
                 <span className="text-sm font-medium text-slate-700">Liberty Mutual</span>
                 <span className="text-xs text-slate-500">Detailed with photos</span>
               </label>
@@ -329,7 +343,14 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 htmlFor="template-insurance" 
                 className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
-                <i className="ri-file-damage-line text-2xl text-slate-600 mb-1"></i>
+                <div className="relative">
+                  <i className="ri-file-damage-line text-2xl text-slate-600 mb-1"></i>
+                  {selectedTemplate === "insurance" && (
+                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary-500 text-white text-xs">
+                      <i className="ri-check-line"></i>
+                    </span>
+                  )}
+                </div>
                 <span className="text-sm font-medium text-slate-700">Progressive</span>
                 <span className="text-xs text-slate-500">Progressive official format</span>
               </label>
@@ -349,9 +370,16 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
               />
               <label 
                 htmlFor="template-wildfire-basic" 
-                className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
+                className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
-                <i className="ri-fire-line text-2xl text-orange-500 mb-1"></i>
+                <div className="relative">
+                  <i className="ri-fire-line text-2xl text-orange-500 mb-1"></i>
+                  {selectedTemplate === "wildfire-basic" && (
+                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary-500 text-white text-xs">
+                      <i className="ri-check-line"></i>
+                    </span>
+                  )}
+                </div>
                 <span className="text-sm font-medium text-slate-700">State Farm</span>
                 <span className="text-xs text-slate-500">State Farm wildfire claim</span>
               </label>
@@ -368,9 +396,16 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
               />
               <label 
                 htmlFor="template-wildfire-detailed" 
-                className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
+                className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
-                <i className="ri-file-damage-fill text-2xl text-orange-600 mb-1"></i>
+                <div className="relative">
+                  <i className="ri-file-damage-fill text-2xl text-orange-600 mb-1"></i>
+                  {selectedTemplate === "wildfire-detailed" && (
+                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary-500 text-white text-xs">
+                      <i className="ri-check-line"></i>
+                    </span>
+                  )}
+                </div>
                 <span className="text-sm font-medium text-slate-700">Allstate</span>
                 <span className="text-xs text-slate-500">Allstate wildfire claim</span>
               </label>
@@ -387,7 +422,7 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
               />
               <label 
                 htmlFor="template-wildfire-rush" 
-                className="flex flex-col items-center p-3 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 hover:bg-slate-100"
+                className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
                 <i className="ri-alarm-warning-line text-2xl text-red-600 mb-1"></i>
                 <span className="text-sm font-medium text-slate-700">USAA</span>
