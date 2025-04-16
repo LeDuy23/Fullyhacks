@@ -111,16 +111,16 @@ const AboutPage: React.FC = () => {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-primary-700 text-white py-12 text-center">
+      <div className="bg-primary-700 py-12 text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to start your claim?</h2>
-          <p className="text-primary-100 mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 text-white">Ready to start your claim?</h2>
+          <p className="text-white mb-8 max-w-2xl mx-auto">
             Let us help you document your lost items and generate professional insurance claims.
           </p>
           <Button 
             onClick={() => setLocation("/personal-info")} 
             size="lg"
-            className="bg-white text-primary-700 hover:bg-primary-50 px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl border-2 border-primary-300"
+            className="bg-white text-primary-700 hover:bg-primary-50 px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl border-2 border-white"
           >
             <i className="ri-file-list-3-line mr-2"></i>
             Start My Claim
