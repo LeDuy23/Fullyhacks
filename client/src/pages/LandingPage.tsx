@@ -33,7 +33,7 @@ const LandingPage: React.FC = () => {
               <Button 
                 onClick={() => setLocation("/personal-info")} 
                 size="lg"
-                className="bg-white text-primary-700 hover:bg-primary-50 px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl"
+                className="bg-primary-600 text-white hover:bg-primary-700 border-2 border-white px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl"
               >
                 <i className="ri-file-list-3-line mr-2"></i>
                 Start My Claim
