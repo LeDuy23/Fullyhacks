@@ -276,7 +276,10 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
       <div className="bg-slate-50 rounded-lg border border-slate-200 p-4">
         
         <div className="grid grid-cols-1 gap-3 mb-4">
-          <div className="text-sm font-semibold text-slate-700 mb-2">Major Insurance Company Templates</div>
+          <div className="flex items-center gap-2 border-b pb-2 mb-3">
+            <i className="ri-shield-check-line text-xl text-primary-600"></i>
+            <h3 className="text-md font-semibold text-slate-800">Major Insurance Company Templates</h3>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
             <div className="relative">
               <input 
@@ -357,7 +360,10 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
             </div>
           </div>
           
-          <div className="text-sm font-semibold text-slate-700 mb-2">Wildfire Insurance Company Templates</div>
+          <div className="flex items-center gap-2 border-b pb-2 mb-3 mt-4">
+            <i className="ri-fire-fill text-xl text-orange-500"></i>
+            <h3 className="text-md font-semibold text-slate-800">Wildfire Insurance Company Templates</h3>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="relative">
               <input 
@@ -424,7 +430,14 @@ const ExportOptions: React.FC<ExportOptionsProps> = ({ claimId, onExport }) => {
                 htmlFor="template-wildfire-rush" 
                 className="flex flex-col items-center p-4 border-2 border-slate-200 rounded-md cursor-pointer peer-checked:border-primary-500 peer-checked:bg-primary-50 peer-checked:shadow-md peer-checked:transform peer-checked:scale-105 hover:bg-slate-100 transition-all duration-200"
               >
-                <i className="ri-alarm-warning-line text-2xl text-red-600 mb-1"></i>
+                <div className="relative">
+                  <i className="ri-alarm-warning-line text-2xl text-red-600 mb-1"></i>
+                  {selectedTemplate === "wildfire-rush" && (
+                    <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-primary-500 text-white text-xs">
+                      <i className="ri-check-line"></i>
+                    </span>
+                  )}
+                </div>
                 <span className="text-sm font-medium text-slate-700">USAA</span>
                 <span className="text-xs text-slate-500">USAA expedited claim</span>
               </label>
