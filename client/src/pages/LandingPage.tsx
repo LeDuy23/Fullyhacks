@@ -33,16 +33,15 @@ const LandingPage: React.FC = () => {
               <Button 
                 onClick={() => setLocation("/personal-info")} 
                 size="lg"
-                className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white px-8 py-6 text-lg"
+                className="bg-white text-primary-700 hover:bg-primary-50 px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl"
               >
                 <i className="ri-file-list-3-line mr-2"></i>
                 Start My Claim
               </Button>
               <Button 
                 onClick={() => setLocation("/about")} 
-                variant="outline" 
                 size="lg"
-                className="border-white text-white hover:bg-white/10 px-8 py-6 text-lg"
+                className="bg-primary-600 text-white hover:bg-primary-700 border-2 border-white px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl"
               >
                 <i className="ri-team-line mr-2"></i>
                 About Our Team

@@ -6,7 +6,7 @@ interface TeamMember {
   name: string;
   role: string;
   bio: string;
-  image: string;
+  icon: string;
 }
 
 const AboutPage: React.FC = () => {
@@ -17,19 +17,19 @@ const AboutPage: React.FC = () => {
       name: "Duy Le",
       role: "Full Stack Developer",
       bio: "My name is Duy, I am a Junior in computer science and I am interested in AI and fintech, specifically in quantitative finance. In my free time I like to golf and gamble.",
-      image: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+      icon: "ri-code-s-slash-line"
     },
     {
       name: "Jacob Fishel",
       role: "Machine Learning Engineer",
       bio: "My name is Jacob, I am a Junior in computer science and I am interested in AI and machine learning, specifically computer vision. In my free time I'm either gaming or hanging out with my friends.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+      icon: "ri-brain-line"
     },
     {
       name: "Philip Ma",
       role: "Backend Developer",
       bio: "My name is Philip Ma. I'm a 3rd year computer science student with an interest in Fintech. I love reading and working out in my free time too.",
-      image: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?w=400&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
+      icon: "ri-database-2-line"
     }
   ];
 
@@ -45,8 +45,7 @@ const AboutPage: React.FC = () => {
           </p>
           <Button 
             onClick={() => setLocation("/")} 
-            variant="outline" 
-            className="mt-6 border-white text-white hover:bg-white/10"
+            className="mt-6 bg-white text-primary-700 hover:bg-primary-50 font-bold shadow-lg"
           >
             <i className="ri-arrow-left-line mr-2"></i>
             Back to Home
@@ -60,19 +59,15 @@ const AboutPage: React.FC = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           {teamMembers.map((member, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="h-64 overflow-hidden">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="w-full h-full object-cover"
-                />
+            <div key={index} className="bg-white rounded-lg shadow-md p-8 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 border-t-4 border-primary-500">
+              <div className="flex items-center justify-center mb-6">
+                <div className="w-20 h-20 rounded-full bg-primary-100 flex items-center justify-center text-primary-600">
+                  <i className={`${member.icon} text-4xl`}></i>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-slate-800 mb-1">{member.name}</h3>
-                <p className="text-primary-600 mb-4">{member.role}</p>
-                <p className="text-slate-600">{member.bio}</p>
-              </div>
+              <h3 className="text-xl font-bold text-center text-slate-800 mb-2">{member.name}</h3>
+              <p className="text-primary-600 text-center font-medium mb-4">{member.role}</p>
+              <p className="text-slate-600 text-center">{member.bio}</p>
             </div>
           ))}
         </div>
@@ -119,7 +114,7 @@ const AboutPage: React.FC = () => {
           <Button 
             onClick={() => setLocation("/personal-info")} 
             size="lg"
-            className="bg-white text-primary-700 hover:bg-primary-50"
+            className="bg-white text-primary-700 hover:bg-primary-50 px-8 py-6 text-lg font-bold shadow-lg hover:shadow-xl border-2 border-primary-300"
           >
             <i className="ri-file-list-3-line mr-2"></i>
             Start My Claim
