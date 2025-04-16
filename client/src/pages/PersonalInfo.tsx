@@ -23,7 +23,7 @@ const personalInfoSchema = z.object({
   fullName: z.string().min(2, { message: "Full name is required" }),
   email: z.string().email({ message: "Invalid email address" }),
   phone: z.string().min(5, { message: "Phone number is required" }),
-  policyNumber: z.string().optional(),
+  policyNumber: z.string().nullable().transform(val => val || ""),
   streetAddress: z.string().min(2, { message: "Street address is required" }),
   city: z.string().min(2, { message: "City is required" }),
   state: z.string().min(2, { message: "State is required" }),
@@ -169,7 +169,11 @@ const PersonalInfo: React.FC = () => {
                       <FormItem>
                         <FormLabel>{t('policy_number')}</FormLabel>
                         <FormControl>
-                          <Input placeholder={t('policy_number_placeholder')} {...field} />
+                          <Input 
+                            placeholder={t('policy_number_placeholder')} 
+                            {...field} 
+                            value={field.value || ""} 
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
