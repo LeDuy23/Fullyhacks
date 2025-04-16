@@ -30,6 +30,12 @@ const AboutPage: React.FC = () => {
       role: "CS Student",
       bio: "My name is Philip Ma. I'm a 3rd year computer science student with an interest in Fintech. I love reading and working out in my free time too.",
       icon: "ri-user-3-line"
+    },
+    {
+      name: "Bryan Orozco",
+      role: "CS Student",
+      bio: "My name is Bryan, I am a sophomore studying Computer science and am interested in working with large scale data and game development.",
+      icon: "ri-user-3-line"
     }
   ];
 
@@ -57,7 +63,7 @@ const AboutPage: React.FC = () => {
       <div className="container mx-auto px-6 py-16">
         <h2 className="text-3xl font-bold text-center mb-12 text-slate-800">Meet Our Team</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {teamMembers.map((member, index) => (
             <div key={index} className="bg-white rounded-lg shadow-md p-8 transition-transform duration-300 hover:shadow-lg hover:-translate-y-1 border-t-4 border-primary-500">
               <div className="flex items-center justify-center mb-6">
@@ -90,7 +96,7 @@ const AboutPage: React.FC = () => {
               Our team recognized this challenge and built ClaimAssist to streamline the documentation process. 
               The application helps users catalog lost items, provides AI assistance for finding replacement costs, 
               offers currency conversion for international purchases, and generates professionally formatted 
-              claim forms tailored to specific insurance companies.
+              claim documents in various formats to help organize inventory information in a clear, structured way.
             </p>
             <div className="flex flex-wrap gap-3">
               <span className="bg-slate-200 text-slate-700 px-3 py-1 rounded-full text-sm">React</span>
