@@ -250,7 +250,6 @@ export class MemStorage implements IStorage {
       modelNumber: insertItem.modelNumber || null,
       serialNumber: insertItem.serialNumber || null,
       notes: insertItem.notes || null,
-      warranty: insertItem.warranty || null,
       imageUrls: insertItem.imageUrls || [],
       tags: insertItem.tags || null,
       createdBy: insertItem.createdBy || null,
@@ -264,7 +263,7 @@ export class MemStorage implements IStorage {
     const existingItem = this.items.get(id);
     if (!existingItem) return undefined;
     
-    const updatedItem = { ...existingItem, ...item };
+    const updatedItem = { ...existingItem, ...item, updatedAt: new Date() };
     this.items.set(id, updatedItem);
     return updatedItem;
   }
