@@ -170,7 +170,6 @@ var MemStorage = class {
       modelNumber: insertItem.modelNumber || null,
       serialNumber: insertItem.serialNumber || null,
       notes: insertItem.notes || null,
-      warranty: insertItem.warranty || null,
       imageUrls: insertItem.imageUrls || [],
       tags: insertItem.tags || null,
       createdBy: insertItem.createdBy || null,
@@ -182,7 +181,7 @@ var MemStorage = class {
   async updateItem(id, item) {
     const existingItem = this.items.get(id);
     if (!existingItem) return void 0;
-    const updatedItem = { ...existingItem, ...item };
+    const updatedItem = { ...existingItem, ...item, updatedAt: /* @__PURE__ */ new Date() };
     this.items.set(id, updatedItem);
     return updatedItem;
   }
@@ -435,10 +434,9 @@ var items = pgTable("items", {
   quantity: integer("quantity").notNull().default(1),
   purchaseDate: text("purchase_date"),
   retailer: text("retailer"),
-  model: text("model"),
+  modelNumber: text("model_number"),
   serialNumber: text("serial_number"),
   brand: text("brand"),
-  condition: text("condition"),
   notes: text("notes"),
   imageUrls: json("image_urls").$type().default([]),
   documentUrls: json("document_urls").$type().default([]),
@@ -1235,19 +1233,11 @@ import { createServer as createViteServer, createLogger } from "vite";
 // vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import themePlugin from "@replit/vite-plugin-shadcn-theme-json";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 var vite_config_default = defineConfig({
+  base: "/Fullyhacks/",
   plugins: [
-    react(),
-    runtimeErrorOverlay(),
-    themePlugin(),
-    ...process.env.NODE_ENV !== "production" && process.env.REPL_ID !== void 0 ? [
-      await import("@replit/vite-plugin-cartographer").then(
-        (m) => m.cartographer()
-      )
-    ] : []
+    react()
   ],
   resolve: {
     alias: {
